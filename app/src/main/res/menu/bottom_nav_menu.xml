@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/connection_status"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="@string/nav_connect" />
+    <item
+        android:id="@+id/profile_list"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="@string/nav_profiles" />
+    <item
+        android:id="@+id/key_management"
+        android:icon="@android:drawable/ic_lock_lock"
+        android:title="@string/nav_keys" />
+    <item
+        android:id="@+id/settings"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="@string/nav_settings" />
+</menu>

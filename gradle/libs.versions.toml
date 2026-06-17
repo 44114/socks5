@@ -1,0 +1,42 @@
+[versions]
+agp = "8.4.2"          # 从 8.2.2 升级
+kotlin = "1.9.24"
+coroutines = "1.8.0"
+jsch = "0.2.23"
+bouncycastle = "1.78.1"
+room = "2.6.1"
+lifecycle = "2.8.0"    # 可选更新
+navigation = "2.7.7"
+security-crypto = "1.1.0-alpha06"
+dnsjava = "3.6.1"
+core-ktx = "1.13.1"    # 可选更新
+appcompat = "1.7.0"    # 可选更新
+material = "1.12.0"    # 可选更新
+constraintlayout = "2.1.4"
+fragment-ktx = "1.8.0" # 可选更新
+
+[libraries]
+jsch = { module = "com.github.mwiede:jsch", version.ref = "jsch" }
+bouncycastle-prov = { module = "org.bouncycastle:bcprov-jdk18on", version.ref = "bouncycastle" }
+coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+dnsjava = { module = "dnsjava:dnsjava", version.ref = "dnsjava" }
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
+lifecycle-service = { module = "androidx.lifecycle:lifecycle-service", version.ref = "lifecycle" }
+navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
+navigation-ui = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
+security-crypto = { module = "androidx.security:security-crypto", version.ref = "security-crypto" }
+core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
+appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
+constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragment-ktx" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-ksp = { id = "com.google.devtools.ksp", version = "1.9.24-1.0.20" }

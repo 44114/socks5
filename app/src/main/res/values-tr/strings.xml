@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Socks5 Proxy</string>
+
+    <!-- Navigasyon -->
+    <string name="nav_connect">Bağlan</string>
+    <string name="nav_profiles">Profiller</string>
+    <string name="nav_keys">Anahtarlar</string>
+    <string name="nav_terminal">Terminal</string>
+    <string name="nav_settings">Ayarlar</string>
+
+    <!-- Bağlantı -->
+    <string name="status_connected">Bağlı</string>
+    <string name="status_connecting">Bağlanıyor…</string>
+    <string name="status_disconnected">Bağlantı kesildi</string>
+    <string name="status_error">Hata</string>
+    <string name="btn_connect">Bağlan</string>
+    <string name="btn_disconnect">Bağlantıyı kes</string>
+
+    <!-- Profiller -->
+    <string name="profile_add">Profil ekle</string>
+    <string name="profile_edit">Profili düzenle</string>
+    <string name="profile_name">Profil adı</string>
+    <string name="profile_host">Sunucu</string>
+    <string name="profile_port">Port</string>
+    <string name="profile_username">Kullanıcı adı</string>
+    <string name="profile_auth_method">Kimlik doğrulama</string>
+    <string name="auth_password">Parola</string>
+    <string name="auth_private_key">Özel anahtar</string>
+    <string name="profile_save">Kaydet</string>
+    <string name="profile_delete">Sil</string>
+
+    <!-- Anahtarlar -->
+    <string name="key_import">Anahtar içe aktar</string>
+    <string name="key_generate">Anahtar oluştur</string>
+    <string name="key_name">Anahtar adı</string>
+    <string name="key_type">Anahtar türü</string>
+    <string name="key_fingerprint">Parmak izi</string>
+
+    <!-- Terminal -->
+    <string name="terminal_new_session">Yeni terminal</string>
+    <string name="terminal_close_session">Oturumu kapat</string>
+
+    <!-- Ayarlar -->
+    <string name="setting_auto_connect">Başlangıçta otomatik bağlan</string>
+    <string name="setting_boot_start">Açılışta başlat</string>
+    <string name="setting_dns_server">DNS sunucusu</string>
+    <string name="setting_keepalive">Keep-alive aralığı (saniye)</string>
+    <string name="setting_local_socks_port">Yerel SOCKS5 portu</string>
+
+    <!-- Bildirimler -->
+    <string name="notification_channel_vpn">VPN Durumu</string>
+    <string name="notification_vpn_connected">VPN %1$s adresine bağlı</string>
+    <string name="notification_vpn_connecting">%1$s adresine bağlanıyor…</string>
+
+    <!-- VPN İzni -->
+    <string name="vpn_permission_required">Trafiği yönlendirmek için VPN izni gerekli</string>
+    <string name="vpn_permission_grant">İzin ver</string>
+</resources>

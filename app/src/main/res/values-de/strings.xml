@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Socks5 Proxy</string>
+
+    <!-- Navigation -->
+    <string name="nav_connect">Verbinden</string>
+    <string name="nav_profiles">Profile</string>
+    <string name="nav_keys">Schlüssel</string>
+    <string name="nav_terminal">Terminal</string>
+    <string name="nav_settings">Einstellungen</string>
+
+    <!-- Verbindung -->
+    <string name="status_connected">Verbunden</string>
+    <string name="status_connecting">Verbinde…</string>
+    <string name="status_disconnected">Getrennt</string>
+    <string name="status_error">Fehler</string>
+    <string name="btn_connect">Verbinden</string>
+    <string name="btn_disconnect">Trennen</string>
+
+    <!-- Profile -->
+    <string name="profile_add">Profil hinzufügen</string>
+    <string name="profile_edit">Profil bearbeiten</string>
+    <string name="profile_name">Profilname</string>
+    <string name="profile_host">Host</string>
+    <string name="profile_port">Port</string>
+    <string name="profile_username">Benutzername</string>
+    <string name="profile_auth_method">Authentifizierung</string>
+    <string name="auth_password">Passwort</string>
+    <string name="auth_private_key">Privater Schlüssel</string>
+    <string name="profile_save">Speichern</string>
+    <string name="profile_delete">Löschen</string>
+
+    <!-- Schlüssel -->
+    <string name="key_import">Schlüssel importieren</string>
+    <string name="key_generate">Schlüssel generieren</string>
+    <string name="key_name">Schlüsselname</string>
+    <string name="key_type">Schlüsseltyp</string>
+    <string name="key_fingerprint">Fingerabdruck</string>
+
+    <!-- Terminal -->
+    <string name="terminal_new_session">Neues Terminal</string>
+    <string name="terminal_close_session">Sitzung schließen</string>
+
+    <!-- Einstellungen -->
+    <string name="setting_auto_connect">Automatisch beim Start verbinden</string>
+    <string name="setting_boot_start">Beim Booten starten</string>
+    <string name="setting_dns_server">DNS-Server</string>
+    <string name="setting_keepalive">Keep-Alive-Intervall (Sekunden)</string>
+    <string name="setting_local_socks_port">Lokaler SOCKS5-Port</string>
+
+    <!-- Benachrichtigungen -->
+    <string name="notification_channel_vpn">VPN-Status</string>
+    <string name="notification_vpn_connected">VPN verbunden mit %1$s</string>
+    <string name="notification_vpn_connecting">Verbinde mit %1$s…</string>
+
+    <!-- VPN-Berechtigung -->
+    <string name="vpn_permission_required">VPN-Berechtigung zum Routen des Datenverkehrs erforderlich</string>
+    <string name="vpn_permission_grant">Berechtigung erteilen</string>
+</resources>

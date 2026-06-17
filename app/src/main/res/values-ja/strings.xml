@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Socks5 プロキシ</string>
+
+    <!-- ナビゲーション -->
+    <string name="nav_connect">接続</string>
+    <string name="nav_profiles">プロファイル</string>
+    <string name="nav_keys">鍵</string>
+    <string name="nav_terminal">端末</string>
+    <string name="nav_settings">設定</string>
+
+    <!-- 接続 -->
+    <string name="status_connected">接続済み</string>
+    <string name="status_connecting">接続中…</string>
+    <string name="status_disconnected">切断済み</string>
+    <string name="status_error">エラー</string>
+    <string name="btn_connect">接続</string>
+    <string name="btn_disconnect">切断</string>
+
+    <!-- プロファイル -->
+    <string name="profile_add">プロファイルを追加</string>
+    <string name="profile_edit">プロファイルを編集</string>
+    <string name="profile_name">プロファイル名</string>
+    <string name="profile_host">ホスト</string>
+    <string name="profile_port">ポート</string>
+    <string name="profile_username">ユーザー名</string>
+    <string name="profile_auth_method">認証方式</string>
+    <string name="auth_password">パスワード</string>
+    <string name="auth_private_key">秘密鍵</string>
+    <string name="profile_save">保存</string>
+    <string name="profile_delete">削除</string>
+
+    <!-- 鍵 -->
+    <string name="key_import">鍵をインポート</string>
+    <string name="key_generate">鍵を生成</string>
+    <string name="key_name">鍵名</string>
+    <string name="key_type">鍵の種類</string>
+    <string name="key_fingerprint">フィンガープリント</string>
+
+    <!-- 端末 -->
+    <string name="terminal_new_session">新しい端末</string>
+    <string name="terminal_close_session">セッションを閉じる</string>
+
+    <!-- 設定 -->
+    <string name="setting_auto_connect">起動時に自動接続</string>
+    <string name="setting_boot_start">起動時に開始</string>
+    <string name="setting_dns_server">DNS サーバー</string>
+    <string name="setting_keepalive">キープアライブ間隔（秒）</string>
+    <string name="setting_local_socks_port">ローカル SOCKS5 ポート</string>
+
+    <!-- 通知 -->
+    <string name="notification_channel_vpn">VPN 状態</string>
+    <string name="notification_vpn_connected">VPN が %1$s に接続されました</string>
+    <string name="notification_vpn_connecting">%1$s に接続中…</string>
+
+    <!-- VPN 権限 -->
+    <string name="vpn_permission_required">トラフィックをルーティングするには VPN 権限が必要です</string>
+    <string name="vpn_permission_grant">権限を付与</string>
+</resources>

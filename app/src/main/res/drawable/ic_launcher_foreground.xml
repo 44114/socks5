@@ -1,0 +1,28 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Simple shield/VPN icon representing secure proxy -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,28 L54,28 C60.6,33.2 68.6,36 77,36 L77,36
+                          C77,36 77,56 77,56
+                          C77,66.6 72.2,76.5 64,83
+                          L54,91 L44,83
+                          C35.8,76.5 31,66.6 31,56
+                          L31,56 C31,56 31,36 31,36
+                          C39.4,36 47.4,33.2 54,28 Z" />
+
+    <!-- Keyhole -->
+    <path
+        android:fillColor="#1B73E8"
+        android:pathData="M50,55 C47.2,55 45,57.2 45,60
+                          C45,62.1 46.2,63.9 48,64.8 L48,69
+                          C48,70.1 48.9,71 50,71 L58,71
+                          C59.1,71 60,70.1 60,69 L60,64.8
+                          C61.8,63.9 63,62.1 63,60
+                          C63,57.2 60.8,55 58,55
+                          L50,55 Z" />
+</vector>

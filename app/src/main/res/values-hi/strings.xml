@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Socks5 प्रॉक्सी</string>
+
+    <!-- नेविगेशन -->
+    <string name="nav_connect">कनेक्ट</string>
+    <string name="nav_profiles">प्रोफ़ाइल</string>
+    <string name="nav_keys">कुंजी</string>
+    <string name="nav_terminal">टर्मिनल</string>
+    <string name="nav_settings">सेटिंग्स</string>
+
+    <!-- कनेक्शन -->
+    <string name="status_connected">कनेक्टेड</string>
+    <string name="status_connecting">कनेक्ट हो रहा है…</string>
+    <string name="status_disconnected">डिस्कनेक्टेड</string>
+    <string name="status_error">त्रुटि</string>
+    <string name="btn_connect">कनेक्ट करें</string>
+    <string name="btn_disconnect">डिस्कनेक्ट करें</string>
+
+    <!-- प्रोफ़ाइल -->
+    <string name="profile_add">प्रोफ़ाइल जोड़ें</string>
+    <string name="profile_edit">प्रोफ़ाइल संपादित करें</string>
+    <string name="profile_name">प्रोफ़ाइल नाम</string>
+    <string name="profile_host">होस्ट</string>
+    <string name="profile_port">पोर्ट</string>
+    <string name="profile_username">उपयोगकर्ता नाम</string>
+    <string name="profile_auth_method">प्रमाणीकरण विधि</string>
+    <string name="auth_password">पासवर्ड</string>
+    <string name="auth_private_key">निजी कुंजी</string>
+    <string name="profile_save">सहेजें</string>
+    <string name="profile_delete">हटाएं</string>
+
+    <!-- कुंजी -->
+    <string name="key_import">कुंजी आयात करें</string>
+    <string name="key_generate">कुंजी बनाएं</string>
+    <string name="key_name">कुंजी का नाम</string>
+    <string name="key_type">कुंजी प्रकार</string>
+    <string name="key_fingerprint">फिंगरप्रिंट</string>
+
+    <!-- टर्मिनल -->
+    <string name="terminal_new_session">नया टर्मिनल</string>
+    <string name="terminal_close_session">सत्र बंद करें</string>
+
+    <!-- सेटिंग्स -->
+    <string name="setting_auto_connect">शुरू होने पर स्वतः कनेक्ट करें</string>
+    <string name="setting_boot_start">बूट पर शुरू करें</string>
+    <string name="setting_dns_server">DNS सर्वर</string>
+    <string name="setting_keepalive">कीप-अलाइव अंतराल (सेकंड)</string>
+    <string name="setting_local_socks_port">स्थानीय SOCKS5 पोर्ट</string>
+
+    <!-- सूचनाएं -->
+    <string name="notification_channel_vpn">VPN स्थिति</string>
+    <string name="notification_vpn_connected">VPN %1$s से कनेक्ट है</string>
+    <string name="notification_vpn_connecting">%1$s से कनेक्ट हो रहा है…</string>
+
+    <!-- VPN अनुमति -->
+    <string name="vpn_permission_required">ट्रैफ़िक रूट करने के लिए VPN अनुमति आवश्यक है</string>
+    <string name="vpn_permission_grant">अनुमति दें</string>
+</resources>

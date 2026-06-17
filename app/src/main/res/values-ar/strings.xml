@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">وكيل Socks5</string>
+
+    <!-- التنقل -->
+    <string name="nav_connect">اتصال</string>
+    <string name="nav_profiles">الملفات</string>
+    <string name="nav_keys">المفاتيح</string>
+    <string name="nav_terminal">الطرفية</string>
+    <string name="nav_settings">الإعدادات</string>
+
+    <!-- الاتصال -->
+    <string name="status_connected">متصل</string>
+    <string name="status_connecting">جارٍ الاتصال…</string>
+    <string name="status_disconnected">غير متصل</string>
+    <string name="status_error">خطأ</string>
+    <string name="btn_connect">اتصال</string>
+    <string name="btn_disconnect">قطع الاتصال</string>
+
+    <!-- الملفات -->
+    <string name="profile_add">إضافة ملف</string>
+    <string name="profile_edit">تعديل الملف</string>
+    <string name="profile_name">اسم الملف</string>
+    <string name="profile_host">المضيف</string>
+    <string name="profile_port">المنفذ</string>
+    <string name="profile_username">اسم المستخدم</string>
+    <string name="profile_auth_method">طريقة المصادقة</string>
+    <string name="auth_password">كلمة المرور</string>
+    <string name="auth_private_key">مفتاح خاص</string>
+    <string name="profile_save">حفظ</string>
+    <string name="profile_delete">حذف</string>
+
+    <!-- المفاتيح -->
+    <string name="key_import">استيراد مفتاح</string>
+    <string name="key_generate">توليد مفتاح</string>
+    <string name="key_name">اسم المفتاح</string>
+    <string name="key_type">نوع المفتاح</string>
+    <string name="key_fingerprint">البصمة</string>
+
+    <!-- الطرفية -->
+    <string name="terminal_new_session">جلسة طرفية جديدة</string>
+    <string name="terminal_close_session">إغلاق الجلسة</string>
+
+    <!-- الإعدادات -->
+    <string name="setting_auto_connect">اتصال تلقائي عند البدء</string>
+    <string name="setting_boot_start">بدء عند التشغيل</string>
+    <string name="setting_dns_server">خادم DNS</string>
+    <string name="setting_keepalive">فترة الإبقاء على الاتصال (ثوانٍ)</string>
+    <string name="setting_local_socks_port">منفذ SOCKS5 المحلي</string>
+
+    <!-- الإشعارات -->
+    <string name="notification_channel_vpn">حالة VPN</string>
+    <string name="notification_vpn_connected">VPN متصل بـ %1$s</string>
+    <string name="notification_vpn_connecting">جارٍ الاتصال بـ %1$s…</string>
+
+    <!-- إذن VPN -->
+    <string name="vpn_permission_required">إذن VPN مطلوب لتوجيه حركة المرور</string>
+    <string name="vpn_permission_grant">منح الإذن</string>
+</resources>

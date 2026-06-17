@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Socks5 프록시</string>
+
+    <!-- 네비게이션 -->
+    <string name="nav_connect">연결</string>
+    <string name="nav_profiles">프로필</string>
+    <string name="nav_keys">키</string>
+    <string name="nav_terminal">터미널</string>
+    <string name="nav_settings">설정</string>
+
+    <!-- 연결 -->
+    <string name="status_connected">연결됨</string>
+    <string name="status_connecting">연결 중…</string>
+    <string name="status_disconnected">연결 해제됨</string>
+    <string name="status_error">오류</string>
+    <string name="btn_connect">연결</string>
+    <string name="btn_disconnect">연결 해제</string>
+
+    <!-- 프로필 -->
+    <string name="profile_add">프로필 추가</string>
+    <string name="profile_edit">프로필 편집</string>
+    <string name="profile_name">프로필 이름</string>
+    <string name="profile_host">호스트</string>
+    <string name="profile_port">포트</string>
+    <string name="profile_username">사용자 이름</string>
+    <string name="profile_auth_method">인증 방식</string>
+    <string name="auth_password">비밀번호</string>
+    <string name="auth_private_key">개인 키</string>
+    <string name="profile_save">저장</string>
+    <string name="profile_delete">삭제</string>
+
+    <!-- 키 -->
+    <string name="key_import">키 가져오기</string>
+    <string name="key_generate">키 생성</string>
+    <string name="key_name">키 이름</string>
+    <string name="key_type">키 유형</string>
+    <string name="key_fingerprint">지문</string>
+
+    <!-- 터미널 -->
+    <string name="terminal_new_session">새 터미널</string>
+    <string name="terminal_close_session">세션 닫기</string>
+
+    <!-- 설정 -->
+    <string name="setting_auto_connect">시작 시 자동 연결</string>
+    <string name="setting_boot_start">부팅 시 시작</string>
+    <string name="setting_dns_server">DNS 서버</string>
+    <string name="setting_keepalive">Keep-alive 간격 (초)</string>
+    <string name="setting_local_socks_port">로컬 SOCKS5 포트</string>
+
+    <!-- 알림 -->
+    <string name="notification_channel_vpn">VPN 상태</string>
+    <string name="notification_vpn_connected">VPN이 %1$s에 연결됨</string>
+    <string name="notification_vpn_connecting">%1$s에 연결 중…</string>
+
+    <!-- VPN 권한 -->
+    <string name="vpn_permission_required">트래픽 라우팅을 위해 VPN 권한이 필요합니다</string>
+    <string name="vpn_permission_grant">권한 허용</string>
+</resources>

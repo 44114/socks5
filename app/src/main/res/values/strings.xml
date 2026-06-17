@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Socks5 Proxy</string>
+
+    <!-- Navigation -->
+    <string name="nav_connect">Connect</string>
+    <string name="nav_profiles">Profiles</string>
+    <string name="nav_keys">Keys</string>
+    <string name="nav_terminal">Terminal</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Connection -->
+    <string name="status_connected">Connected</string>
+    <string name="status_connecting">Connecting…</string>
+    <string name="status_disconnected">Disconnected</string>
+    <string name="status_error">Error</string>
+    <string name="btn_connect">Connect</string>
+    <string name="btn_disconnect">Disconnect</string>
+
+    <!-- Profiles -->
+    <string name="profile_add">Add Profile</string>
+    <string name="profile_edit">Edit Profile</string>
+    <string name="profile_name">Profile Name</string>
+    <string name="profile_host">Host</string>
+    <string name="profile_port">Port</string>
+    <string name="profile_username">Username</string>
+    <string name="profile_auth_method">Authentication</string>
+    <string name="auth_password">Password</string>
+    <string name="auth_private_key">Private Key</string>
+    <string name="profile_save">Save</string>
+    <string name="profile_delete">Delete</string>
+
+    <!-- Keys -->
+    <string name="key_import">Import Key</string>
+    <string name="key_generate">Generate Key</string>
+    <string name="key_name">Key Name</string>
+    <string name="key_type">Key Type</string>
+    <string name="key_fingerprint">Fingerprint</string>
+
+    <!-- Terminal -->
+    <string name="terminal_new_session">New Terminal</string>
+    <string name="terminal_close_session">Close Session</string>
+
+    <!-- Settings -->
+    <string name="setting_auto_connect">Auto-connect on start</string>
+    <string name="setting_boot_start">Start on boot</string>
+    <string name="setting_dns_server">DNS Server</string>
+    <string name="setting_keepalive">Keep-alive interval (seconds)</string>
+    <string name="setting_local_socks_port">Local SOCKS5 port</string>
+
+    <!-- Notifications -->
+    <string name="notification_channel_vpn">VPN Status</string>
+    <string name="notification_vpn_connected">VPN connected to %1$s</string>
+    <string name="notification_vpn_connecting">Connecting to %1$s…</string>
+
+    <!-- VPN Permission -->
+    <string name="vpn_permission_required">VPN permission is required to route traffic</string>
+    <string name="vpn_permission_grant">Grant Permission</string>
+</resources>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Socks5 代理</string>
+
+    <!-- 导航 -->
+    <string name="nav_connect">连接</string>
+    <string name="nav_profiles">配置</string>
+    <string name="nav_keys">密钥</string>
+    <string name="nav_terminal">终端</string>
+    <string name="nav_settings">设置</string>
+
+    <!-- 连接 -->
+    <string name="status_connected">已连接</string>
+    <string name="status_connecting">正在连接…</string>
+    <string name="status_disconnected">已断开</string>
+    <string name="status_error">错误</string>
+    <string name="btn_connect">连接</string>
+    <string name="btn_disconnect">断开</string>
+
+    <!-- 配置 -->
+    <string name="profile_add">添加配置</string>
+    <string name="profile_edit">编辑配置</string>
+    <string name="profile_name">配置名称</string>
+    <string name="profile_host">主机</string>
+    <string name="profile_port">端口</string>
+    <string name="profile_username">用户名</string>
+    <string name="profile_auth_method">认证方式</string>
+    <string name="auth_password">密码</string>
+    <string name="auth_private_key">私钥</string>
+    <string name="profile_save">保存</string>
+    <string name="profile_delete">删除</string>
+
+    <!-- 密钥 -->
+    <string name="key_import">导入密钥</string>
+    <string name="key_generate">生成密钥</string>
+    <string name="key_name">密钥名称</string>
+    <string name="key_type">密钥类型</string>
+    <string name="key_fingerprint">指纹</string>
+
+    <!-- 终端 -->
+    <string name="terminal_new_session">新建终端</string>
+    <string name="terminal_close_session">关闭会话</string>
+
+    <!-- 设置 -->
+    <string name="setting_auto_connect">启动时自动连接</string>
+    <string name="setting_boot_start">开机自启</string>
+    <string name="setting_dns_server">DNS 服务器</string>
+    <string name="setting_keepalive">保活间隔（秒）</string>
+    <string name="setting_local_socks_port">本地 SOCKS5 端口</string>
+
+    <!-- 通知 -->
+    <string name="notification_channel_vpn">VPN 状态</string>
+    <string name="notification_vpn_connected">VPN 已连接到 %1$s</string>
+    <string name="notification_vpn_connecting">正在连接到 %1$s…</string>
+
+    <!-- VPN 权限 -->
+    <string name="vpn_permission_required">需要 VPN 权限才能路由流量</string>
+    <string name="vpn_permission_grant">授予权限</string>
+</resources>

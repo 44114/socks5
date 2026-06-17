@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Socks5 代理</string>
+
+    <!-- 導航 -->
+    <string name="nav_connect">連線</string>
+    <string name="nav_profiles">設定檔</string>
+    <string name="nav_keys">金鑰</string>
+    <string name="nav_terminal">終端機</string>
+    <string name="nav_settings">設定</string>
+
+    <!-- 連線 -->
+    <string name="status_connected">已連線</string>
+    <string name="status_connecting">正在連線…</string>
+    <string name="status_disconnected">已中斷</string>
+    <string name="status_error">錯誤</string>
+    <string name="btn_connect">連線</string>
+    <string name="btn_disconnect">中斷</string>
+
+    <!-- 設定檔 -->
+    <string name="profile_add">新增設定檔</string>
+    <string name="profile_edit">編輯設定檔</string>
+    <string name="profile_name">設定檔名稱</string>
+    <string name="profile_host">主機</string>
+    <string name="profile_port">連接埠</string>
+    <string name="profile_username">使用者名稱</string>
+    <string name="profile_auth_method">驗證方式</string>
+    <string name="auth_password">密碼</string>
+    <string name="auth_private_key">私密金鑰</string>
+    <string name="profile_save">儲存</string>
+    <string name="profile_delete">刪除</string>
+
+    <!-- 金鑰 -->
+    <string name="key_import">匯入金鑰</string>
+    <string name="key_generate">產生金鑰</string>
+    <string name="key_name">金鑰名稱</string>
+    <string name="key_type">金鑰類型</string>
+    <string name="key_fingerprint">指紋</string>
+
+    <!-- 終端機 -->
+    <string name="terminal_new_session">新增終端機</string>
+    <string name="terminal_close_session">關閉工作階段</string>
+
+    <!-- 設定 -->
+    <string name="setting_auto_connect">啟動時自動連線</string>
+    <string name="setting_boot_start">開機自動啟動</string>
+    <string name="setting_dns_server">DNS 伺服器</string>
+    <string name="setting_keepalive">保持連線間隔（秒）</string>
+    <string name="setting_local_socks_port">本機 SOCKS5 連接埠</string>
+
+    <!-- 通知 -->
+    <string name="notification_channel_vpn">VPN 狀態</string>
+    <string name="notification_vpn_connected">VPN 已連線至 %1$s</string>
+    <string name="notification_vpn_connecting">正在連線至 %1$s…</string>
+
+    <!-- VPN 權限 -->
+    <string name="vpn_permission_required">需要 VPN 權限才能路由流量</string>
+    <string name="vpn_permission_grant">授予權限</string>
+</resources>

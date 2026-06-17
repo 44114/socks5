@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Proxy Socks5</string>
+
+    <!-- Navigazione -->
+    <string name="nav_connect">Connetti</string>
+    <string name="nav_profiles">Profili</string>
+    <string name="nav_keys">Chiavi</string>
+    <string name="nav_terminal">Terminale</string>
+    <string name="nav_settings">Impostazioni</string>
+
+    <!-- Connessione -->
+    <string name="status_connected">Connesso</string>
+    <string name="status_connecting">Connessione in corso…</string>
+    <string name="status_disconnected">Disconnesso</string>
+    <string name="status_error">Errore</string>
+    <string name="btn_connect">Connetti</string>
+    <string name="btn_disconnect">Disconnetti</string>
+
+    <!-- Profili -->
+    <string name="profile_add">Aggiungi profilo</string>
+    <string name="profile_edit">Modifica profilo</string>
+    <string name="profile_name">Nome profilo</string>
+    <string name="profile_host">Host</string>
+    <string name="profile_port">Porta</string>
+    <string name="profile_username">Nome utente</string>
+    <string name="profile_auth_method">Autenticazione</string>
+    <string name="auth_password">Password</string>
+    <string name="auth_private_key">Chiave privata</string>
+    <string name="profile_save">Salva</string>
+    <string name="profile_delete">Elimina</string>
+
+    <!-- Chiavi -->
+    <string name="key_import">Importa chiave</string>
+    <string name="key_generate">Genera chiave</string>
+    <string name="key_name">Nome chiave</string>
+    <string name="key_type">Tipo di chiave</string>
+    <string name="key_fingerprint">Impronta</string>
+
+    <!-- Terminale -->
+    <string name="terminal_new_session">Nuovo terminale</string>
+    <string name="terminal_close_session">Chiudi sessione</string>
+
+    <!-- Impostazioni -->
+    <string name="setting_auto_connect">Connessione automatica all\'avvio</string>
+    <string name="setting_boot_start">Avvia all\'accensione</string>
+    <string name="setting_dns_server">Server DNS</string>
+    <string name="setting_keepalive">Intervallo keep-alive (secondi)</string>
+    <string name="setting_local_socks_port">Porta SOCKS5 locale</string>
+
+    <!-- Notifiche -->
+    <string name="notification_channel_vpn">Stato VPN</string>
+    <string name="notification_vpn_connected">VPN connesso a %1$s</string>
+    <string name="notification_vpn_connecting">Connessione a %1$s…</string>
+
+    <!-- Permesso VPN -->
+    <string name="vpn_permission_required">Permesso VPN richiesto per instradare il traffico</string>
+    <string name="vpn_permission_grant">Concedi permesso</string>
+</resources>
