@@ -12,8 +12,8 @@ android {
         applicationId = "com.socks5"
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 101
+        versionName = "v1.0.1"
     }
 
     buildTypes {
@@ -23,6 +23,12 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // F-Droid: disable VCS metadata embedding for reproducible builds
+            vcsInfo.include = false
+        }
+        debug {
+            // F-Droid: disable VCS metadata embedding for reproducible builds
+            vcsInfo.include = false
         }
     }
 
@@ -33,6 +39,12 @@ android {
 
     kotlinOptions {
         jvmTarget = "17"
+    }
+
+    // F-Droid: disable dependency metadata in APK Signing Block
+    // F-Droid scanner rejects extra signing blocks, so this must be off
+    dependenciesInfo {
+        includeInApk = false
     }
 
     buildFeatures {

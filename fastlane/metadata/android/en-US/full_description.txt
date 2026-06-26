@@ -1,0 +1,48 @@
+Socks5 Proxy routes your device's internet traffic through an encrypted SSH tunnel using Android's built-in VPN framework — no root access required. It creates a local TUN network interface that captures all outgoing IPv4 traffic, forwards it through a secure SSH connection to your server, and sends it out to the internet from there. This effectively masks your device's real IP address and encrypts all data in transit between your device and the SSH server.
+
+=== WHAT IT DOES ===
+
+When connected, every app on your device — browsers, email, messaging, streaming — has its traffic routed through the SSH tunnel automatically. You don't need to configure individual apps. The persistent notification shows real-time connection status and data usage so you always know what's happening.
+
+It also includes a local SOCKS5 proxy (RFC 1928 compliant) on 127.0.0.1:1080, allowing individual apps like browsers to use the tunnel without enabling the system-wide VPN. An interactive terminal lets you open shell sessions directly to the remote server from within the app, useful for server administration, file management, or running commands.
+
+=== KEY FEATURES ===
+
+• System-Wide VPN — Routes all device IPv4 traffic through an SSH tunnel via Android VpnService. No root needed.
+• SOCKS5 Proxy — Built-in RFC 1928 proxy on localhost:1080 for per-app or per-browser use.
+• SSH Key Support — Full support for RSA (up to 4096-bit), ECDSA (P-256/P-384/P-521), and Ed25519 key algorithms.
+• Dual Authentication — Connect using password authentication or SSH private key authentication with optional encrypted passphrases.
+• Interactive Terminal — Open multiple concurrent shell sessions to the remote server with PTY resize support.
+• DNS over TCP — Intercepts DNS queries from the VPN interface and resolves them through the encrypted tunnel, preventing DNS leaks.
+• Secure Storage — SSH private keys are encrypted with AES-256-GCM using the Android Keystore (hardware-backed on supported devices). Passwords and key passphrases are stored in EncryptedSharedPreferences.
+• Connection Profiles — Save multiple server configurations with different authentication methods and switch between them quickly.
+• Auto-Reconnect — Exponential backoff reconnection with configurable keep-alive interval to maintain connectivity on unstable networks.
+• Boot Start — Optionally start the VPN automatically when your device boots.
+• Traffic Statistics — Real-time upload and download byte counters shown in the notification and main screen.
+• Foreground Service — Persistent notification with connection status, server hostname, and live traffic data.
+• Material Design 3 — Clean, modern interface with bottom navigation and dark mode support.
+• Host Key Verification — SSH host keys are verified and cached, protecting against man-in-the-middle attacks.
+
+=== REQUIREMENTS ===
+
+• Android 7.0 (API 24) or higher
+• An SSH server you control or trust, with password or key-based authentication enabled
+• The server must allow TCP forwarding (AllowTcpForwarding must be set to yes in sshd_config)
+
+=== USE CASES ===
+
+• Privacy — Hide your real IP address from websites and services by routing traffic through your own server.
+• Security on Public Wi-Fi — Encrypt all traffic when using untrusted networks at coffee shops, airports, or hotels.
+• Bypass Network Restrictions — Access services blocked on restrictive networks by tunneling through your SSH server.
+• Remote Access — Securely access resources on the SSH server's local network.
+• Server Administration — Open a shell on your server directly from the app for quick maintenance tasks.
+
+=== OPEN SOURCE ===
+
+This app is free and open-source software licensed under the MIT License. The source code is available on GitHub. It is built with trusted open-source libraries including mwiede/jsch for SSH connectivity, Bouncy Castle for Ed25519 support on older Android versions, dnsjava for DNS resolution, and Android Jetpack components for the UI and data layer.
+
+=== IMPORTANT NOTES ===
+
+This application routes ALL your device traffic through your SSH server. The security and privacy of your connection depend entirely on that server. Only connect to servers you own or fully trust. The developers assume no liability for misuse or any damages caused by this software.
+
+Using a VPN may increase battery consumption since all traffic is processed through the encrypted tunnel. The app includes several optimizations — a custom TCP state machine written in pure Kotlin (no native code), connection pooling with limits, and idle timeout management — to minimize overhead.
