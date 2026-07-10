@@ -41,8 +41,8 @@ class ConnectionStatusFragment : Fragment(R.layout.fragment_connection_status) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        observeState()
         setupProfileSpinner()
+        observeState()
 
         binding.connectButton.setOnClickListener {
             handleConnectDisconnect()
