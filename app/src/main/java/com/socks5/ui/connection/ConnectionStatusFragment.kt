@@ -137,8 +137,7 @@ class ConnectionStatusFragment : Fragment(R.layout.fragment_connection_status) {
                 selectedProfileId = profiles.first().id
             }
 
-            binding.profileSpinner.isEnabled = viewModel.connectionState.value
-                is SshConnectionManager.ConnectionState.Disconnected
+            binding.profileSpinner.isEnabled = viewModel.connectionState.value is SshConnectionManager.ConnectionState.Disconnected
         }
 
         isProgrammaticSpinnerChange = false
