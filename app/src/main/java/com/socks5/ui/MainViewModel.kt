@@ -41,11 +41,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     // Profiles and keys
     val profiles: StateFlow<List<ConnectionProfile>> =
         profileRepository.getAllProfiles()
-            .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
+            .stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
 
     val keys: StateFlow<List<SshKey>> =
         keyRepository.getAllKeys()
-            .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
+            .stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
 
     // Currently selected profile
     private val _selectedProfile = MutableStateFlow<ConnectionProfile?>(null)
@@ -168,14 +168,22 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     /**
-     * Save (insert or update) a profile.
+     * Save (insert or update) a profile. Returns the profile ID.
      */
-    suspend fun saveProfile(profile: ConnectionProfile) {
-        if (profile.id == 0L) {
+    suspend fun saveProfile(profile: ConnectionProfile): Long {
+        return if (profile.id == 0L) {
             profileRepository.insert(profile)
         } else {
             profileRepository.update(profile)
+            profile.id
         }
+    }
+
+    /**
+     * Save the password for a profile.
+     */
+    fun savePassword(profileId: Long, password: String) {
+        preferences.setPassword(profileId, password)
     }
 
     /**

@@ -143,11 +143,11 @@ class ProfileDetailFragment : Fragment(R.layout.fragment_profile_detail) {
                 keyId = keyId
             )
 
-            viewModel.saveProfile(profile)
+            val savedId = viewModel.saveProfile(profile)
 
             // Store password if provided
             if (authMethodType == AuthMethodType.PASSWORD && password.isNotEmpty()) {
-                // Password will be stored after connection
+                viewModel.savePassword(savedId, password)
             }
 
             findNavController().popBackStack()

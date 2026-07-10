@@ -56,4 +56,7 @@
     <!-- VPN Permission -->
     <string name="vpn_permission_required">VPN permission is required to route traffic</string>
     <string name="vpn_permission_grant">Grant Permission</string>
+
+    <!-- Errors -->
+    <string name="no_profile_configured">No profile configured. Please add a profile first.</string>
 </resources>

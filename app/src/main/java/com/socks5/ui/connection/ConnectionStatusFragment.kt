@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.socks5.R
 import com.socks5.data.model.ConnectionProfile
 import com.socks5.databinding.FragmentConnectionStatusBinding
@@ -61,6 +63,12 @@ class ConnectionStatusFragment : Fragment(R.layout.fragment_connection_status) {
                     binding.vpnIndicator.isChecked = active
                 }
             }
+
+            launch {
+                viewModel.errorMessage.collect { message ->
+                    Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
+                }
+            }
         }
     }
 
@@ -111,13 +119,14 @@ class ConnectionStatusFragment : Fragment(R.layout.fragment_connection_status) {
                 viewModel.disconnect()
             }
             else -> {
-                // Navigate to profile selection or use last profile
-                val lastId = viewModel.profiles.value
-                    .firstOrNull()
-                    ?.let {
-                        // Try to connect with the most recently used profile
-                        connectWithProfile(it)
-                    }
+                val profile = viewModel.profiles.value.firstOrNull()
+                if (profile != null) {
+                    connectWithProfile(profile)
+                } else {
+                    // No profiles configured — show a toast and navigate to profiles
+                    Toast.makeText(requireContext(), R.string.no_profile_configured, Toast.LENGTH_LONG).show()
+                    findNavController().navigate(R.id.profile_list)
+                }
             }
         }
     }
