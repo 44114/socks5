@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -23,6 +25,10 @@ class ConnectionStatusFragment : Fragment(R.layout.fragment_connection_status) {
     private val binding get() = _binding!!
     private val viewModel: MainViewModel by viewModels()
 
+    private var selectedProfileId: Long? = null
+    private var isProgrammaticSpinnerChange = false
+    private lateinit var profileAdapter: ArrayAdapter<String>
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -36,6 +42,7 @@ class ConnectionStatusFragment : Fragment(R.layout.fragment_connection_status) {
         super.onViewCreated(view, savedInstanceState)
 
         observeState()
+        setupProfileSpinner()
 
         binding.connectButton.setOnClickListener {
             handleConnectDisconnect()
@@ -69,7 +76,72 @@ class ConnectionStatusFragment : Fragment(R.layout.fragment_connection_status) {
                     Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
                 }
             }
+
+            launch {
+                viewModel.profiles.collect { profiles ->
+                    updateProfileSpinner(profiles)
+                }
+            }
         }
+    }
+
+    private fun setupProfileSpinner() {
+        profileAdapter = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_item,
+            mutableListOf()
+        )
+        profileAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.profileSpinner.adapter = profileAdapter
+
+        binding.profileSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                if (!isProgrammaticSpinnerChange) {
+                    val profiles = viewModel.profiles.value
+                    selectedProfileId = if (position in profiles.indices) {
+                        profiles[position].id
+                    } else {
+                        null
+                    }
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                if (!isProgrammaticSpinnerChange) {
+                    selectedProfileId = null
+                }
+            }
+        }
+    }
+
+    private fun updateProfileSpinner(profiles: List<ConnectionProfile>) {
+        isProgrammaticSpinnerChange = true
+        profileAdapter.clear()
+
+        if (profiles.isEmpty()) {
+            profileAdapter.add(getString(R.string.no_profiles_available))
+            selectedProfileId = null
+            binding.profileSpinner.isEnabled = false
+        } else {
+            profileAdapter.addAll(profiles.map { it.name })
+
+            val currentSelectionValid = selectedProfileId?.let { id ->
+                profiles.any { it.id == id }
+            } ?: false
+
+            if (currentSelectionValid) {
+                val index = profiles.indexOfFirst { it.id == selectedProfileId }
+                binding.profileSpinner.setSelection(index)
+            } else {
+                binding.profileSpinner.setSelection(0)
+                selectedProfileId = profiles.first().id
+            }
+
+            binding.profileSpinner.isEnabled = viewModel.connectionState.value
+                is SshConnectionManager.ConnectionState.Disconnected
+        }
+
+        isProgrammaticSpinnerChange = false
     }
 
     private fun updateConnectionUI(state: SshConnectionManager.ConnectionState) {
@@ -82,6 +154,7 @@ class ConnectionStatusFragment : Fragment(R.layout.fragment_connection_status) {
                 binding.connectButton.text = getString(R.string.btn_connect)
                 binding.connectButton.isEnabled = true
                 binding.serverText.text = "--"
+                binding.profileSpinner.isEnabled = viewModel.profiles.value.isNotEmpty()
             }
             is SshConnectionManager.ConnectionState.Connecting -> {
                 binding.statusText.text = getString(R.string.status_connecting)
@@ -91,6 +164,7 @@ class ConnectionStatusFragment : Fragment(R.layout.fragment_connection_status) {
                 binding.connectButton.text = "Connecting..."
                 binding.connectButton.isEnabled = false
                 binding.serverText.text = state.host
+                binding.profileSpinner.isEnabled = false
             }
             is SshConnectionManager.ConnectionState.Connected -> {
                 binding.statusText.text = getString(R.string.status_connected)
@@ -100,6 +174,7 @@ class ConnectionStatusFragment : Fragment(R.layout.fragment_connection_status) {
                 binding.connectButton.text = getString(R.string.btn_disconnect)
                 binding.connectButton.isEnabled = true
                 binding.serverText.text = state.host
+                binding.profileSpinner.isEnabled = false
             }
             is SshConnectionManager.ConnectionState.Error -> {
                 binding.statusText.text = state.message
@@ -108,6 +183,7 @@ class ConnectionStatusFragment : Fragment(R.layout.fragment_connection_status) {
                 )
                 binding.connectButton.text = getString(R.string.btn_connect)
                 binding.connectButton.isEnabled = true
+                binding.profileSpinner.isEnabled = viewModel.profiles.value.isNotEmpty()
             }
         }
     }
@@ -119,7 +195,9 @@ class ConnectionStatusFragment : Fragment(R.layout.fragment_connection_status) {
                 viewModel.disconnect()
             }
             else -> {
-                val profile = viewModel.profiles.value.firstOrNull()
+                val profile = selectedProfileId?.let { id ->
+                    viewModel.profiles.value.find { it.id == id }
+                }
                 if (profile != null) {
                     connectWithProfile(profile)
                 } else {

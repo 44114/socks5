@@ -33,6 +33,14 @@
         android:textSize="16sp"
         android:textColor="?android:attr/textColorSecondary" />
 
+    <!-- Profile Selector -->
+    <Spinner
+        android:id="@+id/profile_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:prompt="@string/profile_selector_prompt" />
+
     <!-- Traffic Stats -->
     <LinearLayout
         android:layout_width="match_parent"
