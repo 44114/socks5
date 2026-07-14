@@ -12,8 +12,8 @@ android {
         applicationId = "com.socks5"
         minSdk = 24
         targetSdk = 34
-        versionCode = 205
-        versionName = "2.0.5"
+        versionCode = 300
+        versionName = "3.0.0"
     }
 
     buildTypes {
