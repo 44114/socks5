@@ -56,4 +56,36 @@
     <!-- VPN 権限 -->
     <string name="vpn_permission_required">トラフィックをルーティングするには VPN 権限が必要です</string>
     <string name="vpn_permission_grant">権限を付与</string>
+
+    <!-- プロファイル選択 -->
+    <string name="profile_selector_prompt">プロファイルを選択</string>
+    <string name="no_profiles_available">利用可能なプロファイルがありません</string>
+
+    <!-- バッテリー最適化 -->
+    <string name="setting_battery_title">バックグラウンドで実行を維持</string>
+    <string name="setting_battery_description">画面オフ時にシステムがVPN接続を終了しないように、バッテリー最適化を無効にしてください。</string>
+    <string name="setting_battery_action">バッテリー設定を開く</string>
+
+    <!-- 寄付 -->
+    <string name="setting_donate_title">ビットコインで寄付</string>
+    <string name="setting_donate_description">このアプリが役立つと思われましたら、開発をサポートしてください：</string>
+    <string name="setting_donate_copy">アドレスをコピー</string>
+    <string name="setting_donate_copied">アドレスをクリップボードにコピーしました</string>
+
+    <!-- エラー -->
+    <string name="no_profile_configured">接続が設定されていません。最初にプロファイルを追加してください。</string>
+
+    <!-- カスタムHosts -->
+    <string name="setting_custom_hosts_title">カスタム Hosts</string>
+    <string name="setting_custom_hosts_description">ホスト名をカスタム IP アドレスにマッピングします。これらのマッピングは DNS 解決を上書きします。</string>
+    <string name="setting_custom_hosts_add">Host エントリを追加</string>
+    <string name="setting_custom_hosts_empty">カスタム Host エントリはありません</string>
+    <string name="custom_host_dialog_title">カスタム Host を追加</string>
+    <string name="custom_host_hostname_label">ホスト名</string>
+    <string name="custom_host_ip_label">IP アドレス</string>
+    <string name="custom_host_add_button">追加</string>
+    <string name="custom_host_delete_description">%1$s を削除</string>
+    <string name="custom_host_invalid_ip">有効な IPv4 アドレスを入力してください</string>
+    <string name="custom_host_invalid_hostname">有効なホスト名を入力してください</string>
+    <string name="custom_host_duplicate">このホスト名は既に存在します</string>
 </resources>

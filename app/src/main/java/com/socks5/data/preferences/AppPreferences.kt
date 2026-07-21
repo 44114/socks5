@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKeys
+import org.json.JSONObject
 
 /**
  * Secure app preferences using EncryptedSharedPreferences.
@@ -49,6 +50,51 @@ class AppPreferences(context: Context) {
     var localSocksPort: Int
         get() = normalPrefs.getInt("local_socks_port", 1080)
         set(value) = normalPrefs.edit().putInt("local_socks_port", value).apply()
+
+    // --- Custom hosts (hostname → IP mappings) ---
+
+    /**
+     * Get all custom host mappings as an immutable map.
+     */
+    fun getCustomHosts(): Map<String, String> {
+        val json = normalPrefs.getString("custom_hosts", "{}") ?: "{}"
+        return try {
+            val obj = JSONObject(json)
+            val map = mutableMapOf<String, String>()
+            for (key in obj.keys()) {
+                map[key] = obj.getString(key)
+            }
+            map
+        } catch (_: Exception) {
+            emptyMap()
+        }
+    }
+
+    /**
+     * Add or update a custom host mapping.
+     */
+    fun addCustomHost(hostname: String, ip: String) {
+        val json = try {
+            JSONObject(normalPrefs.getString("custom_hosts", "{}") ?: "{}")
+        } catch (_: Exception) {
+            JSONObject()
+        }
+        json.put(hostname.trim().lowercase(), ip.trim())
+        normalPrefs.edit().putString("custom_hosts", json.toString()).apply()
+    }
+
+    /**
+     * Remove a custom host mapping by hostname.
+     */
+    fun removeCustomHost(hostname: String) {
+        val json = try {
+            JSONObject(normalPrefs.getString("custom_hosts", "{}") ?: "{}")
+        } catch (_: Exception) {
+            JSONObject()
+        }
+        json.remove(hostname.trim().lowercase())
+        normalPrefs.edit().putString("custom_hosts", json.toString()).apply()
+    }
 
     /**
      * Store an SSH password for a profile (encrypted).

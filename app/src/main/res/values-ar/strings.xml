@@ -56,4 +56,36 @@
     <!-- إذن VPN -->
     <string name="vpn_permission_required">إذن VPN مطلوب لتوجيه حركة المرور</string>
     <string name="vpn_permission_grant">منح الإذن</string>
+
+    <!-- محدد الملف -->
+    <string name="profile_selector_prompt">اختر ملف التعريف</string>
+    <string name="no_profiles_available">لا توجد ملفات متاحة</string>
+
+    <!-- تحسين البطارية -->
+    <string name="setting_battery_title">الاستمرار في التشغيل في الخلفية</string>
+    <string name="setting_battery_description">قم بتعطيل تحسين البطارية لمنع النظام من إنهاء اتصال VPN عند إيقاف تشغيل الشاشة.</string>
+    <string name="setting_battery_action">فتح إعدادات البطارية</string>
+
+    <!-- تبرع -->
+    <string name="setting_donate_title">تبرع بالبيتكوين</string>
+    <string name="setting_donate_description">إذا وجدت هذا التطبيق مفيدًا، ففكر في دعم التطوير:</string>
+    <string name="setting_donate_copy">نسخ العنوان</string>
+    <string name="setting_donate_copied">تم نسخ العنوان إلى الحافظة</string>
+
+    <!-- أخطاء -->
+    <string name="no_profile_configured">لم يتم تكوين اتصال. يرجى إضافة ملف تعريف أولاً.</string>
+
+    <!-- Hosts مخصصة -->
+    <string name="setting_custom_hosts_title">Hosts مخصصة</string>
+    <string name="setting_custom_hosts_description">تعيين أسماء المضيفين إلى عناوين IP مخصصة. تتجاوز هذه التعيينات تحليل DNS.</string>
+    <string name="setting_custom_hosts_add">إضافة إدخال Host</string>
+    <string name="setting_custom_hosts_empty">لا توجد إدخالات Host مخصصة</string>
+    <string name="custom_host_dialog_title">إضافة Host مخصص</string>
+    <string name="custom_host_hostname_label">اسم المضيف</string>
+    <string name="custom_host_ip_label">عنوان IP</string>
+    <string name="custom_host_add_button">إضافة</string>
+    <string name="custom_host_delete_description">حذف %1$s</string>
+    <string name="custom_host_invalid_ip">يرجى إدخال عنوان IPv4 صالح</string>
+    <string name="custom_host_invalid_hostname">يرجى إدخال اسم مضيف صالح</string>
+    <string name="custom_host_duplicate">اسم المضيف هذا موجود بالفعل</string>
 </resources>

@@ -23,9 +23,10 @@ import java.nio.ByteOrder
 class DnsResolver(
     private val sshManager: SshConnectionManager,
     private val writeToTun: (ByteArray) -> Unit,
-    private val scope: CoroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    private val scope: CoroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.IO),
+    private val defaultDnsServer: String = "1.1.1.1",
+    private val customHosts: Map<String, String> = emptyMap()
 ) {
-    private val defaultDnsServer = "1.1.1.1"
     private val defaultDnsPort = 53
 
     // Cache for recent DNS resolutions (TTL-aware)
@@ -72,6 +73,10 @@ class DnsResolver(
             val query = Message(udpHeader.payload)
             val question = query.question
 
+            // Check custom hosts first (user-defined mappings)
+            val customResult = lookupCustomHosts(question)
+            if (customResult != null) return@withContext customResult
+
             // Check cache
             val cached = lookupCache(question)
             if (cached != null) return@withContext cached
@@ -117,6 +122,28 @@ class DnsResolver(
 
         // Build a response from cached addresses
         return buildDnsResponse(question, entry.addresses)
+    }
+
+    /**
+     * Check custom hosts map for a matching hostname.
+     * Returns a DNS response with the mapped IP, or null if not found.
+     */
+    private fun lookupCustomHosts(question: Record?): ByteArray? {
+        if (question == null || customHosts.isEmpty()) return null
+
+        // Only handle A record queries
+        if (question.type != Type.A) return null
+
+        val hostname = question.name.toString().lowercase().trimEnd('.')
+        val ip = customHosts[hostname] ?: return null
+
+        return try {
+            val addr = InetAddress.getByName(ip)
+            if (addr !is Inet4Address) return null
+            buildDnsResponse(question, listOf(addr))
+        } catch (_: Exception) {
+            null
+        }
     }
 
     /**

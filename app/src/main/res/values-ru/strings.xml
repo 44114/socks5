@@ -56,4 +56,36 @@
     <!-- Разрешение VPN -->
     <string name="vpn_permission_required">Для маршрутизации трафика требуется разрешение VPN</string>
     <string name="vpn_permission_grant">Предоставить разрешение</string>
+
+    <!-- Выбор профиля -->
+    <string name="profile_selector_prompt">Выбрать профиль</string>
+    <string name="no_profiles_available">Нет доступных профилей</string>
+
+    <!-- Оптимизация батареи -->
+    <string name="setting_battery_title">Работать в фоновом режиме</string>
+    <string name="setting_battery_description">Отключите оптимизацию батареи, чтобы система не завершала VPN-соединение при выключенном экране.</string>
+    <string name="setting_battery_action">Открыть настройки батареи</string>
+
+    <!-- Пожертвование -->
+    <string name="setting_donate_title">Пожертвовать Bitcoin</string>
+    <string name="setting_donate_description">Если приложение оказалось полезным, поддержите разработку:</string>
+    <string name="setting_donate_copy">Скопировать адрес</string>
+    <string name="setting_donate_copied">Адрес скопирован в буфер обмена</string>
+
+    <!-- Ошибки -->
+    <string name="no_profile_configured">Подключение не настроено. Сначала добавьте профиль.</string>
+
+    <!-- Пользовательские Hosts -->
+    <string name="setting_custom_hosts_title">Пользовательские Hosts</string>
+    <string name="setting_custom_hosts_description">Сопоставьте имена хостов с пользовательскими IP-адресами. Эти сопоставления переопределяют разрешение DNS.</string>
+    <string name="setting_custom_hosts_add">Добавить запись Host</string>
+    <string name="setting_custom_hosts_empty">Нет пользовательских записей Host</string>
+    <string name="custom_host_dialog_title">Добавить пользовательский Host</string>
+    <string name="custom_host_hostname_label">Имя хоста</string>
+    <string name="custom_host_ip_label">IP-адрес</string>
+    <string name="custom_host_add_button">Добавить</string>
+    <string name="custom_host_delete_description">Удалить %1$s</string>
+    <string name="custom_host_invalid_ip">Введите действительный IPv4-адрес</string>
+    <string name="custom_host_invalid_hostname">Введите действительное имя хоста</string>
+    <string name="custom_host_duplicate">Это имя хоста уже существует</string>
 </resources>

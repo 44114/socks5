@@ -32,6 +32,9 @@ class PacketForwarder(
     // DNS server to use (configurable)
     var dnsServer: String = "1.1.1.1"
 
+    // Custom hosts mappings (hostname → IP)
+    var customHosts: Map<String, String> = emptyMap()
+
     /**
      * Start the packet forwarding loop.
      */
@@ -45,7 +48,9 @@ class PacketForwarder(
                 writePacket(packet)
                 trafficStats.recordDown(packet.size.toLong())
             },
-            scope = scope
+            scope = scope,
+            defaultDnsServer = dnsServer,
+            customHosts = customHosts
         )
 
         connectionPool.startCleanup()

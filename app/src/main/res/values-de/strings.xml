@@ -56,4 +56,36 @@
     <!-- VPN-Berechtigung -->
     <string name="vpn_permission_required">VPN-Berechtigung zum Routen des Datenverkehrs erforderlich</string>
     <string name="vpn_permission_grant">Berechtigung erteilen</string>
+
+    <!-- Profilauswahl -->
+    <string name="profile_selector_prompt">Profil auswählen</string>
+    <string name="no_profiles_available">Keine Profile verfügbar</string>
+
+    <!-- Akkuoptimierung -->
+    <string name="setting_battery_title">Im Hintergrund laufen lassen</string>
+    <string name="setting_battery_description">Deaktivieren Sie die Akkuoptimierung, um zu verhindern, dass das System die VPN-Verbindung bei ausgeschaltetem Bildschirm beendet.</string>
+    <string name="setting_battery_action">Akkueinstellungen öffnen</string>
+
+    <!-- Spenden -->
+    <string name="setting_donate_title">Bitcoin spenden</string>
+    <string name="setting_donate_description">Wenn Sie diese App nützlich finden, unterstützen Sie bitte die Entwicklung:</string>
+    <string name="setting_donate_copy">Adresse kopieren</string>
+    <string name="setting_donate_copied">Adresse in die Zwischenablage kopiert</string>
+
+    <!-- Fehler -->
+    <string name="no_profile_configured">Keine Verbindung konfiguriert. Bitte fügen Sie zuerst ein Profil hinzu.</string>
+
+    <!-- Benutzerdefinierte Hosts -->
+    <string name="setting_custom_hosts_title">Benutzerdefinierte Hosts</string>
+    <string name="setting_custom_hosts_description">Ordnen Sie Hostnamen benutzerdefinierten IP-Adressen zu. Diese Zuordnungen überschreiben die DNS-Auflösung.</string>
+    <string name="setting_custom_hosts_add">Host-Eintrag hinzufügen</string>
+    <string name="setting_custom_hosts_empty">Keine benutzerdefinierten Host-Einträge</string>
+    <string name="custom_host_dialog_title">Benutzerdefinierten Host hinzufügen</string>
+    <string name="custom_host_hostname_label">Hostname</string>
+    <string name="custom_host_ip_label">IP-Adresse</string>
+    <string name="custom_host_add_button">Hinzufügen</string>
+    <string name="custom_host_delete_description">%1$s löschen</string>
+    <string name="custom_host_invalid_ip">Bitte geben Sie eine gültige IPv4-Adresse ein</string>
+    <string name="custom_host_invalid_hostname">Bitte geben Sie einen gültigen Hostnamen ein</string>
+    <string name="custom_host_duplicate">Dieser Hostname existiert bereits</string>
 </resources>

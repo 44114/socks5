@@ -56,4 +56,36 @@
     <!-- Permiso de VPN -->
     <string name="vpn_permission_required">Se requiere permiso VPN para enrutar el tráfico</string>
     <string name="vpn_permission_grant">Conceder permiso</string>
+
+    <!-- Selector de perfil -->
+    <string name="profile_selector_prompt">Seleccionar perfil</string>
+    <string name="no_profiles_available">No hay perfiles disponibles</string>
+
+    <!-- Optimización de batería -->
+    <string name="setting_battery_title">Mantener en segundo plano</string>
+    <string name="setting_battery_description">Desactive la optimización de batería para evitar que el sistema cierre la conexión VPN cuando la pantalla esté apagada.</string>
+    <string name="setting_battery_action">Abrir ajustes de batería</string>
+
+    <!-- Donar -->
+    <string name="setting_donate_title">Donar Bitcoin</string>
+    <string name="setting_donate_description">Si esta aplicación le resulta útil, considere apoyar el desarrollo:</string>
+    <string name="setting_donate_copy">Copiar dirección</string>
+    <string name="setting_donate_copied">Dirección copiada al portapapeles</string>
+
+    <!-- Errores -->
+    <string name="no_profile_configured">No hay conexión configurada. Añada un perfil primero.</string>
+
+    <!-- Hosts personalizados -->
+    <string name="setting_custom_hosts_title">Hosts personalizados</string>
+    <string name="setting_custom_hosts_description">Asigne nombres de host a direcciones IP personalizadas. Estas asignaciones anulan la resolución DNS.</string>
+    <string name="setting_custom_hosts_add">Añadir entrada Host</string>
+    <string name="setting_custom_hosts_empty">Sin entradas Host personalizadas</string>
+    <string name="custom_host_dialog_title">Añadir Host personalizado</string>
+    <string name="custom_host_hostname_label">Nombre de host</string>
+    <string name="custom_host_ip_label">Dirección IP</string>
+    <string name="custom_host_add_button">Añadir</string>
+    <string name="custom_host_delete_description">Eliminar %1$s</string>
+    <string name="custom_host_invalid_ip">Introduzca una dirección IPv4 válida</string>
+    <string name="custom_host_invalid_hostname">Introduzca un nombre de host válido</string>
+    <string name="custom_host_duplicate">Este nombre de host ya existe</string>
 </resources>

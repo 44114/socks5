@@ -56,4 +56,36 @@
     <!-- VPN 권한 -->
     <string name="vpn_permission_required">트래픽 라우팅을 위해 VPN 권한이 필요합니다</string>
     <string name="vpn_permission_grant">권한 허용</string>
+
+    <!-- 프로필 선택기 -->
+    <string name="profile_selector_prompt">프로필 선택</string>
+    <string name="no_profiles_available">사용 가능한 프로필 없음</string>
+
+    <!-- 배터리 최적화 -->
+    <string name="setting_battery_title">백그라운드에서 실행 유지</string>
+    <string name="setting_battery_description">화면이 꺼져 있을 때 시스템이 VPN 연결을 종료하지 않도록 배터리 최적화를 비활성화하세요.</string>
+    <string name="setting_battery_action">배터리 설정 열기</string>
+
+    <!-- 기부 -->
+    <string name="setting_donate_title">비트코인 기부</string>
+    <string name="setting_donate_description">이 앱이 유용하다고 생각되면 개발 지원을 고려해 주세요:</string>
+    <string name="setting_donate_copy">주소 복사</string>
+    <string name="setting_donate_copied">주소가 클립보드에 복사되었습니다</string>
+
+    <!-- 오류 -->
+    <string name="no_profile_configured">연결이 구성되지 않았습니다. 먼저 프로필을 추가하세요.</string>
+
+    <!-- 사용자 정의 Hosts -->
+    <string name="setting_custom_hosts_title">사용자 정의 Hosts</string>
+    <string name="setting_custom_hosts_description">호스트 이름을 사용자 정의 IP 주소에 매핑합니다. 이 매핑은 DNS 확인을 재정의합니다.</string>
+    <string name="setting_custom_hosts_add">Host 항목 추가</string>
+    <string name="setting_custom_hosts_empty">사용자 정의 Host 항목 없음</string>
+    <string name="custom_host_dialog_title">사용자 정의 Host 추가</string>
+    <string name="custom_host_hostname_label">호스트 이름</string>
+    <string name="custom_host_ip_label">IP 주소</string>
+    <string name="custom_host_add_button">추가</string>
+    <string name="custom_host_delete_description">%1$s 삭제</string>
+    <string name="custom_host_invalid_ip">유효한 IPv4 주소를 입력하세요</string>
+    <string name="custom_host_invalid_hostname">유효한 호스트 이름을 입력하세요</string>
+    <string name="custom_host_duplicate">이 호스트 이름이 이미 존재합니다</string>
 </resources>

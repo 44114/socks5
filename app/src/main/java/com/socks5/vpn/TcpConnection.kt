@@ -40,7 +40,10 @@ class TcpConnection(
     // SSH channel
     private var channel: ChannelDirectTCPIP? = null
     private var channelReadJob: Job? = null
-    private var channelWriteJob: Job? = null
+    private var channelWriterJob: Job? = null
+
+    // Write queue for ordered, serialized writes to the SSH channel
+    private val writeQueue = kotlinx.coroutines.channels.Channel<ByteArray>(kotlinx.coroutines.channels.Channel.UNLIMITED)
 
     // Buffers for data from SSH → TUN
     private val pendingData = ArrayDeque<ByteArray>()
@@ -106,8 +109,9 @@ class TcpConnection(
                 ackNum = ackToClient
             )
 
-            // Start reading from SSH channel
+            // Start reading from SSH channel and writing to SSH channel
             startChannelReader()
+            startChannelWriter()
 
         } catch (e: Exception) {
             // Connection refused — send RST
@@ -250,7 +254,7 @@ class TcpConnection(
      * Called from the channel reader coroutine.
      */
     private fun writeDataToTun(data: ByteArray) {
-        if (tcpState != TcpState.ESTABLISHED && tcpState != TcpState.FIN_WAIT_1) {
+        if (tcpState != TcpState.ESTABLISHED && tcpState != TcpState.FIN_WAIT_1 && tcpState != TcpState.FIN_WAIT_2) {
             // Queue for later if connection not yet established
             pendingData.addLast(data)
             return
@@ -345,10 +349,11 @@ class TcpConnection(
             val buffer = ByteArray(32768)
 
             try {
-                while (isActive && tcpState == TcpState.SYN_RCVD ||
+                while (isActive && (tcpState == TcpState.SYN_RCVD ||
                         tcpState == TcpState.ESTABLISHED ||
                         tcpState == TcpState.FIN_WAIT_1 ||
-                        tcpState == TcpState.CLOSE_WAIT
+                        tcpState == TcpState.FIN_WAIT_2 ||
+                        tcpState == TcpState.CLOSE_WAIT)
                 ) {
                     val bytesRead = input.read(buffer)
                     if (bytesRead == -1) break
@@ -371,19 +376,31 @@ class TcpConnection(
     }
 
     /**
-     * Write data to the SSH channel.
+     * Start the sequential writer coroutine that drains the write queue.
+     * Must be called after the SSH channel is opened.
      */
-    private fun writeToChannel(data: ByteArray) {
-        channelWriteJob = scope.launch(Dispatchers.IO) {
+    private fun startChannelWriter() {
+        channelWriterJob = scope.launch(Dispatchers.IO) {
             try {
-                channel?.outputStream?.let { out ->
-                    out.write(data)
-                    out.flush()
+                for (data in writeQueue) {
+                    channel?.outputStream?.let { out ->
+                        out.write(data)
+                        out.flush()
+                    }
                 }
             } catch (_: IOException) {
-                // Channel write error
+                // Channel write error or closed
+            } catch (_: kotlinx.coroutines.CancellationException) {
+                // Writer cancelled
             }
         }
+    }
+
+    /**
+     * Enqueue data for ordered, sequential writing to the SSH channel.
+     */
+    private fun writeToChannel(data: ByteArray) {
+        writeQueue.trySend(data)
     }
 
     /**
@@ -407,7 +424,8 @@ class TcpConnection(
 
     private fun closeChannel() {
         channelReadJob?.cancel()
-        channelWriteJob?.cancel()
+        channelWriterJob?.cancel()
+        writeQueue.close()
         try {
             channel?.disconnect()
         } catch (_: Exception) {}

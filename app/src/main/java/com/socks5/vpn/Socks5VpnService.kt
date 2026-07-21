@@ -33,6 +33,8 @@ class Socks5VpnService : VpnService() {
         const val ACTION_CONNECT = "com.socks5.action.CONNECT"
         const val ACTION_DISCONNECT = "com.socks5.action.DISCONNECT"
         const val EXTRA_PROFILE_ID = "profile_id"
+        const val EXTRA_DNS_SERVER = "dns_server"
+        const val EXTRA_CUSTOM_HOSTS = "custom_hosts"
 
         // VPN parameters
         const val VPN_ADDRESS = "10.0.0.1"
@@ -44,7 +46,32 @@ class Socks5VpnService : VpnService() {
         super.onCreate()
     }
 
+    // DNS server from preferences (configurable via Settings)
+    private var dnsServer: String = "1.1.1.1"
+
+    // Custom hosts mappings (configurable via Settings)
+    private var customHosts: Map<String, String> = emptyMap()
+
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        // Read DNS server from intent extra before starting
+        intent?.getStringExtra(EXTRA_DNS_SERVER)?.let { dns ->
+            if (dns.isNotBlank()) dnsServer = dns
+        }
+
+        // Read custom hosts from intent extra
+        intent?.getStringExtra(EXTRA_CUSTOM_HOSTS)?.let { json ->
+            try {
+                val obj = org.json.JSONObject(json)
+                val hosts = mutableMapOf<String, String>()
+                for (key in obj.keys()) {
+                    hosts[key] = obj.getString(key)
+                }
+                customHosts = hosts
+            } catch (_: Exception) {
+                customHosts = emptyMap()
+            }
+        }
+
         when (intent?.action) {
             ACTION_CONNECT -> startVpn()
             ACTION_DISCONNECT -> stopVpn()
@@ -67,8 +94,7 @@ class Socks5VpnService : VpnService() {
                     .setMtu(VPN_MTU)
                     .addAddress(VPN_ADDRESS, VPN_PREFIX_LENGTH)
                     .addRoute("0.0.0.0", 0) // Route ALL IPv4 traffic
-                    .addDnsServer("1.1.1.1")
-                    .addDnsServer("8.8.8.8")
+                    .addDnsServer(dnsServer)
                     .setBlocking(false)
 
                 // Establish TUN interface
@@ -86,13 +112,16 @@ class Socks5VpnService : VpnService() {
                     protect(socket)
                 }
 
-                // Start packet forwarding
+                // Start packet forwarding with configured DNS server
                 packetForwarder = PacketForwarder(
                     tunFd = tunInterface!!,
                     sshManager = manager,
                     trafficStats = trafficStats,
                     scope = scope
-                )
+                ).also {
+                    it.dnsServer = dnsServer
+                    it.customHosts = customHosts
+                }
                 packetForwarder?.start()
                 trafficStats.reset()
 

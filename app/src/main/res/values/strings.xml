@@ -61,6 +61,31 @@
     <string name="profile_selector_prompt">Select Profile</string>
     <string name="no_profiles_available">No profiles available</string>
 
+    <!-- Battery Optimization -->
+    <string name="setting_battery_title">Keep running in background</string>
+    <string name="setting_battery_description">Disable battery optimization to prevent the system from killing the VPN connection when the screen is off.</string>
+    <string name="setting_battery_action">Open battery settings</string>
+
+    <!-- Custom Hosts -->
+    <string name="setting_custom_hosts_title">Custom Hosts</string>
+    <string name="setting_custom_hosts_description">Map hostnames to custom IP addresses. These mappings override DNS resolution.</string>
+    <string name="setting_custom_hosts_add">Add Host Entry</string>
+    <string name="setting_custom_hosts_empty">No custom host entries</string>
+    <string name="custom_host_dialog_title">Add Custom Host</string>
+    <string name="custom_host_hostname_label">Hostname</string>
+    <string name="custom_host_ip_label">IP Address</string>
+    <string name="custom_host_add_button">Add</string>
+    <string name="custom_host_delete_description">Delete %1$s</string>
+    <string name="custom_host_invalid_ip">Please enter a valid IPv4 address</string>
+    <string name="custom_host_invalid_hostname">Please enter a valid hostname</string>
+    <string name="custom_host_duplicate">This hostname already exists</string>
+
+    <!-- Donate -->
+    <string name="setting_donate_title">Donate Bitcoin</string>
+    <string name="setting_donate_description">If you find this app useful, consider supporting development:</string>
+    <string name="setting_donate_copy">Copy address</string>
+    <string name="setting_donate_copied">Address copied to clipboard</string>
+
     <!-- Errors -->
     <string name="no_profile_configured">No profile configured. Please add a profile first.</string>
 </resources>

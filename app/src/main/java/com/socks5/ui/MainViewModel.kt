@@ -11,12 +11,14 @@ import com.socks5.data.model.SshKey
 import com.socks5.data.preferences.AppPreferences
 import com.socks5.data.repository.KeyRepository
 import com.socks5.data.repository.ProfileRepository
+import com.socks5.socks.Socks5Server
 import com.socks5.ssh.SshConnectionManager
 import com.socks5.ssh.SshConnectionManager.ConnectionState
 import com.socks5.util.TrafficStats
 import com.socks5.vpn.Socks5VpnService
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -27,6 +29,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     val sshManager = SshConnectionManager(viewModelScope)
     val trafficStats = TrafficStats()
+    private var socks5Server: Socks5Server? = null
 
     // Connection state from SSH manager
     val connectionState: StateFlow<ConnectionState> = sshManager.state
@@ -108,7 +111,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
                     profileRepository.markUsed(profile.id)
 
-                    // Start VPN
+                    // Start local SOCKS5 server on configured port
+                    startSocks5Server()
+
+                    // Start VPN with configured DNS server
                     startVpn()
                 } else {
                     _errorMessage.emit(
@@ -129,6 +135,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun disconnect() {
         viewModelScope.launch {
             stopVpn()
+            stopSocks5Server()
             sshManager.disconnect()
             (getApplication<Application>() as? com.socks5.Socks5Application)
                 ?.let { it.activeSshManager = null }
@@ -137,15 +144,39 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     /**
-     * Start the VPN service.
+     * Start the VPN service with configured DNS server.
      */
     private fun startVpn() {
         val context = getApplication<Application>()
         val intent = Intent(context, Socks5VpnService::class.java).apply {
             action = Socks5VpnService.ACTION_CONNECT
+            putExtra(Socks5VpnService.EXTRA_DNS_SERVER, preferences.dnsServer)
+            putExtra(Socks5VpnService.EXTRA_CUSTOM_HOSTS, serializeHosts(preferences.getCustomHosts()))
         }
         context.startService(intent)
         _vpnActive.value = true
+    }
+
+    /**
+     * Start the local SOCKS5 proxy server.
+     */
+    private fun startSocks5Server() {
+        socks5Server?.stop()
+        socks5Server = Socks5Server(
+            sshManager = sshManager,
+            port = preferences.localSocksPort
+        )
+        viewModelScope.launch {
+            socks5Server?.start()
+        }
+    }
+
+    /**
+     * Stop the local SOCKS5 proxy server.
+     */
+    private fun stopSocks5Server() {
+        socks5Server?.stop()
+        socks5Server = null
     }
 
     /**
@@ -192,6 +223,17 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     suspend fun deleteProfile(profile: ConnectionProfile) {
         profileRepository.delete(profile)
         preferences.clearProfileSecrets(profile.id)
+    }
+
+    /**
+     * Serialize custom hosts map to a JSON string for Intent transport.
+     */
+    private fun serializeHosts(hosts: Map<String, String>): String {
+        val json = JSONObject()
+        for ((hostname, ip) in hosts) {
+            json.put(hostname, ip)
+        }
+        return json.toString()
     }
 
     /**

@@ -56,4 +56,36 @@
     <!-- VPN 權限 -->
     <string name="vpn_permission_required">需要 VPN 權限才能路由流量</string>
     <string name="vpn_permission_grant">授予權限</string>
+
+    <!-- 設定檔選擇器 -->
+    <string name="profile_selector_prompt">選擇設定檔</string>
+    <string name="no_profiles_available">無可用設定檔</string>
+
+    <!-- 電池最佳化 -->
+    <string name="setting_battery_title">保持背景執行</string>
+    <string name="setting_battery_description">關閉電池最佳化以防止系統在螢幕關閉後終止 VPN 連線。</string>
+    <string name="setting_battery_action">開啟電池設定</string>
+
+    <!-- 捐贈 -->
+    <string name="setting_donate_title">捐贈比特幣</string>
+    <string name="setting_donate_description">如果您覺得此應用有用，請考慮支持開發：</string>
+    <string name="setting_donate_copy">複製地址</string>
+    <string name="setting_donate_copied">地址已複製到剪貼簿</string>
+
+    <!-- 錯誤 -->
+    <string name="no_profile_configured">未設定連線。請先新增一個設定檔。</string>
+
+    <!-- 自訂 Hosts -->
+    <string name="setting_custom_hosts_title">自訂 Hosts</string>
+    <string name="setting_custom_hosts_description">將主機名稱對應到自訂 IP 位址。這些對應將覆蓋 DNS 解析。</string>
+    <string name="setting_custom_hosts_add">新增 Host 項目</string>
+    <string name="setting_custom_hosts_empty">暫無自訂 Host 項目</string>
+    <string name="custom_host_dialog_title">新增自訂 Host</string>
+    <string name="custom_host_hostname_label">主機名稱</string>
+    <string name="custom_host_ip_label">IP 位址</string>
+    <string name="custom_host_add_button">新增</string>
+    <string name="custom_host_delete_description">刪除 %1$s</string>
+    <string name="custom_host_invalid_ip">請輸入有效的 IPv4 位址</string>
+    <string name="custom_host_invalid_hostname">請輸入有效的主機名稱</string>
+    <string name="custom_host_duplicate">此主機名稱已存在</string>
 </resources>

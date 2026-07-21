@@ -56,4 +56,36 @@
     <!-- VPN İzni -->
     <string name="vpn_permission_required">Trafiği yönlendirmek için VPN izni gerekli</string>
     <string name="vpn_permission_grant">İzin ver</string>
+
+    <!-- Profil seçici -->
+    <string name="profile_selector_prompt">Profil seç</string>
+    <string name="no_profiles_available">Kullanılabilir profil yok</string>
+
+    <!-- Pil optimizasyonu -->
+    <string name="setting_battery_title">Arka planda çalışmaya devam et</string>
+    <string name="setting_battery_description">Ekran kapalıyken sistemin VPN bağlantısını sonlandırmasını önlemek için pil optimizasyonunu devre dışı bırakın.</string>
+    <string name="setting_battery_action">Pil ayarlarını aç</string>
+
+    <!-- Bağış -->
+    <string name="setting_donate_title">Bitcoin bağışı</string>
+    <string name="setting_donate_description">Bu uygulamayı faydalı buluyorsanız, geliştirmeyi desteklemeyi düşünün:</string>
+    <string name="setting_donate_copy">Adresi kopyala</string>
+    <string name="setting_donate_copied">Adres panoya kopyalandı</string>
+
+    <!-- Hatalar -->
+    <string name="no_profile_configured">Bağlantı yapılandırılmadı. Lütfen önce bir profil ekleyin.</string>
+
+    <!-- Özel Hosts -->
+    <string name="setting_custom_hosts_title">Özel Hosts</string>
+    <string name="setting_custom_hosts_description">Ana bilgisayar adlarını özel IP adreslerine eşleyin. Bu eşlemeler DNS çözümlemesini geçersiz kılar.</string>
+    <string name="setting_custom_hosts_add">Host Girişi Ekle</string>
+    <string name="setting_custom_hosts_empty">Özel Host girişi yok</string>
+    <string name="custom_host_dialog_title">Özel Host Ekle</string>
+    <string name="custom_host_hostname_label">Ana bilgisayar adı</string>
+    <string name="custom_host_ip_label">IP Adresi</string>
+    <string name="custom_host_add_button">Ekle</string>
+    <string name="custom_host_delete_description">%1$s sil</string>
+    <string name="custom_host_invalid_ip">Lütfen geçerli bir IPv4 adresi girin</string>
+    <string name="custom_host_invalid_hostname">Lütfen geçerli bir ana bilgisayar adı girin</string>
+    <string name="custom_host_duplicate">Bu ana bilgisayar adı zaten mevcut</string>
 </resources>

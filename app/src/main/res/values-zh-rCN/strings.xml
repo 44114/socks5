@@ -56,4 +56,36 @@
     <!-- VPN 权限 -->
     <string name="vpn_permission_required">需要 VPN 权限才能路由流量</string>
     <string name="vpn_permission_grant">授予权限</string>
+
+    <!-- 配置选择器 -->
+    <string name="profile_selector_prompt">选择配置文件</string>
+    <string name="no_profiles_available">无可用配置文件</string>
+
+    <!-- 电池优化 -->
+    <string name="setting_battery_title">保持后台运行</string>
+    <string name="setting_battery_description">关闭电池优化以防止系统在息屏后终止 VPN 连接。</string>
+    <string name="setting_battery_action">打开电池设置</string>
+
+    <!-- 捐赠 -->
+    <string name="setting_donate_title">捐赠比特币</string>
+    <string name="setting_donate_description">如果您觉得此应用有用，请考虑支持开发：</string>
+    <string name="setting_donate_copy">复制地址</string>
+    <string name="setting_donate_copied">地址已复制到剪贴板</string>
+
+    <!-- 错误 -->
+    <string name="no_profile_configured">未配置连接。请先添加一个配置文件。</string>
+
+    <!-- 自定义 Hosts -->
+    <string name="setting_custom_hosts_title">自定义 Hosts</string>
+    <string name="setting_custom_hosts_description">将主机名映射到自定义 IP 地址。这些映射将覆盖 DNS 解析。</string>
+    <string name="setting_custom_hosts_add">添加 Host 条目</string>
+    <string name="setting_custom_hosts_empty">暂无自定义 Host 条目</string>
+    <string name="custom_host_dialog_title">添加自定义 Host</string>
+    <string name="custom_host_hostname_label">主机名</string>
+    <string name="custom_host_ip_label">IP 地址</string>
+    <string name="custom_host_add_button">添加</string>
+    <string name="custom_host_delete_description">删除 %1$s</string>
+    <string name="custom_host_invalid_ip">请输入有效的 IPv4 地址</string>
+    <string name="custom_host_invalid_hostname">请输入有效的主机名</string>
+    <string name="custom_host_duplicate">此主机名已存在</string>
 </resources>
