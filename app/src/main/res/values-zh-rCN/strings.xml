@@ -88,4 +88,29 @@
     <string name="custom_host_invalid_ip">请输入有效的 IPv4 地址</string>
     <string name="custom_host_invalid_hostname">请输入有效的主机名</string>
     <string name="custom_host_duplicate">此主机名已存在</string>
+
+    <!-- 密钥 -->
+    <string name="key_generate_title">生成 SSH 密钥</string>
+    <string name="key_generate_confirm">生成</string>
+    <string name="key_generate_failed_title">密钥生成失败</string>
+    <string name="key_generate_failed_message">无法生成密钥。</string>
+    <string name="key_default_name">密钥 %1$d</string>
+    <string name="key_size_rsa_hint">密钥长度（仅 RSA）</string>
+    <string name="key_size_fixed_hint">密钥长度（该类型固定）</string>
+    <string name="key_import_title">导入 SSH 密钥</string>
+    <string name="key_import_confirm">导入</string>
+    <string name="key_import_hint">所选文件会自动载入。如果密钥已加密，请输入口令（可选）。</string>
+    <string name="key_import_empty">所选文件不包含密钥。</string>
+    <string name="key_import_failed">无法读取密钥文件：%1$s</string>
+    <string name="key_import_failed_title">导入失败</string>
+    <string name="key_import_failed_message">无法导入密钥。请确认该文件是 PEM 或 OpenSSH 格式的私钥。</string>
+    <string name="key_default_import_name">导入的密钥 %1$d</string>
+    <string name="key_passphrase">口令（可选）</string>
+    <string name="key_copy_public_key">复制公钥</string>
+    <string name="key_public_key_copied">公钥已复制到剪贴板</string>
+    <string name="key_public_key_label">%1$s 的公钥</string>
+    <string name="key_delete_title">删除密钥</string>
+    <string name="key_delete_message">删除“%1$s”？此操作无法撤销。</string>
+    <string name="action_delete">删除</string>
+    <string name="action_cancel">取消</string>
 </resources>

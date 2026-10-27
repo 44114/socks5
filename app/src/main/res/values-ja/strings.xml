@@ -88,4 +88,29 @@
     <string name="custom_host_invalid_ip">有効な IPv4 アドレスを入力してください</string>
     <string name="custom_host_invalid_hostname">有効なホスト名を入力してください</string>
     <string name="custom_host_duplicate">このホスト名は既に存在します</string>
+
+    <!-- 鍵 -->
+    <string name="key_generate_title">SSH 鍵を生成</string>
+    <string name="key_generate_confirm">生成</string>
+    <string name="key_generate_failed_title">鍵の生成に失敗しました</string>
+    <string name="key_generate_failed_message">鍵を生成できませんでした。</string>
+    <string name="key_default_name">鍵 %1$d</string>
+    <string name="key_size_rsa_hint">鍵サイズ（RSA のみ）</string>
+    <string name="key_size_fixed_hint">鍵サイズ（この種類では固定）</string>
+    <string name="key_import_title">SSH 鍵をインポート</string>
+    <string name="key_import_confirm">インポート</string>
+    <string name="key_import_hint">選択したファイルは自動的に読み込まれます。鍵が暗号化されている場合はパスフレーズを入力してください（任意）。</string>
+    <string name="key_import_empty">選択したファイルに鍵が含まれていません。</string>
+    <string name="key_import_failed">鍵ファイルを読み込めませんでした: %1$s</string>
+    <string name="key_import_failed_title">インポートに失敗しました</string>
+    <string name="key_import_failed_message">鍵をインポートできませんでした。ファイルが PEM または OpenSSH 形式の秘密鍵か確認してください。</string>
+    <string name="key_default_import_name">インポートした鍵 %1$d</string>
+    <string name="key_passphrase">パスフレーズ（任意）</string>
+    <string name="key_copy_public_key">公開鍵をコピー</string>
+    <string name="key_public_key_copied">公開鍵をクリップボードにコピーしました</string>
+    <string name="key_public_key_label">%1$s の公開鍵</string>
+    <string name="key_delete_title">鍵を削除</string>
+    <string name="key_delete_message">「%1$s」を削除しますか？この操作は元に戻せません。</string>
+    <string name="action_delete">削除</string>
+    <string name="action_cancel">キャンセル</string>
 </resources>

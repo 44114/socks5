@@ -36,6 +36,29 @@
     <string name="key_name">Key Name</string>
     <string name="key_type">Key Type</string>
     <string name="key_fingerprint">Fingerprint</string>
+    <string name="key_generate_title">Generate SSH Key</string>
+    <string name="key_generate_confirm">Generate</string>
+    <string name="key_generate_failed_title">Key generation failed</string>
+    <string name="key_generate_failed_message">The key could not be generated.</string>
+    <string name="key_default_name">Key %1$d</string>
+    <string name="key_size_rsa_hint">Key Size (RSA only)</string>
+    <string name="key_size_fixed_hint">Key Size (fixed for this type)</string>
+    <string name="key_import_title">Import SSH Key</string>
+    <string name="key_import_confirm">Import</string>
+    <string name="key_import_hint">Paste-only import is not needed here — the selected file is loaded automatically. Enter an optional passphrase if the key is encrypted.</string>
+    <string name="key_import_empty">The selected file does not contain a key.</string>
+    <string name="key_import_failed">Could not read key file: %1$s</string>
+    <string name="key_import_failed_title">Import failed</string>
+    <string name="key_import_failed_message">The key could not be imported. Check that the file is a PEM or OpenSSH private key.</string>
+    <string name="key_default_import_name">Imported Key %1$d</string>
+    <string name="key_passphrase">Passphrase (optional)</string>
+    <string name="key_copy_public_key">Copy public key</string>
+    <string name="key_public_key_copied">Public key copied to clipboard</string>
+    <string name="key_public_key_label">%1$s public key</string>
+    <string name="key_delete_title">Delete Key</string>
+    <string name="key_delete_message">Delete \"%1$s\"? This cannot be undone.</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_cancel">Cancel</string>
 
     <!-- Terminal -->
     <string name="terminal_new_session">New Terminal</string>

@@ -88,4 +88,29 @@
     <string name="custom_host_invalid_ip">Veuillez entrer une adresse IPv4 valide</string>
     <string name="custom_host_invalid_hostname">Veuillez entrer un nom d\'hôte valide</string>
     <string name="custom_host_duplicate">Ce nom d\'hôte existe déjà</string>
+
+    <!-- Clés -->
+    <string name="key_generate_title">Générer une clé SSH</string>
+    <string name="key_generate_confirm">Générer</string>
+    <string name="key_generate_failed_title">Échec de la génération de la clé</string>
+    <string name="key_generate_failed_message">La clé n\'a pas pu être générée.</string>
+    <string name="key_default_name">Clé %1$d</string>
+    <string name="key_size_rsa_hint">Taille de la clé (RSA uniquement)</string>
+    <string name="key_size_fixed_hint">Taille de la clé (fixe pour ce type)</string>
+    <string name="key_import_title">Importer une clé SSH</string>
+    <string name="key_import_confirm">Importer</string>
+    <string name="key_import_hint">Le fichier sélectionné est chargé automatiquement. Saisissez une phrase secrète facultative si la clé est chiffrée.</string>
+    <string name="key_import_empty">Le fichier sélectionné ne contient aucune clé.</string>
+    <string name="key_import_failed">Impossible de lire le fichier de clé : %1$s</string>
+    <string name="key_import_failed_title">Échec de l\'importation</string>
+    <string name="key_import_failed_message">La clé n\'a pas pu être importée. Vérifiez que le fichier est une clé privée au format PEM ou OpenSSH.</string>
+    <string name="key_default_import_name">Clé importée %1$d</string>
+    <string name="key_passphrase">Phrase secrète (facultatif)</string>
+    <string name="key_copy_public_key">Copier la clé publique</string>
+    <string name="key_public_key_copied">Clé publique copiée dans le presse-papiers</string>
+    <string name="key_public_key_label">Clé publique de %1$s</string>
+    <string name="key_delete_title">Supprimer la clé</string>
+    <string name="key_delete_message">Supprimer « %1$s » ? Cette action est irréversible.</string>
+    <string name="action_delete">Supprimer</string>
+    <string name="action_cancel">Annuler</string>
 </resources>

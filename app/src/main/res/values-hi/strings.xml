@@ -88,4 +88,29 @@
     <string name="custom_host_invalid_ip">कृपया एक मान्य IPv4 पता दर्ज करें</string>
     <string name="custom_host_invalid_hostname">कृपया एक मान्य होस्टनाम दर्ज करें</string>
     <string name="custom_host_duplicate">यह होस्टनाम पहले से मौजूद है</string>
+
+    <!-- कुंजियाँ -->
+    <string name="key_generate_title">SSH कुंजी बनाएँ</string>
+    <string name="key_generate_confirm">बनाएँ</string>
+    <string name="key_generate_failed_title">कुंजी बनाने में विफल</string>
+    <string name="key_generate_failed_message">कुंजी नहीं बनाई जा सकी।</string>
+    <string name="key_default_name">कुंजी %1$d</string>
+    <string name="key_size_rsa_hint">कुंजी आकार (केवल RSA)</string>
+    <string name="key_size_fixed_hint">कुंजी आकार (इस प्रकार के लिए निश्चित)</string>
+    <string name="key_import_title">SSH कुंजी आयात करें</string>
+    <string name="key_import_confirm">आयात करें</string>
+    <string name="key_import_hint">चयनित फ़ाइल स्वचालित रूप से लोड होती है। यदि कुंजी एन्क्रिप्टेड है तो वैकल्पिक पासफ़्रेज़ दर्ज करें।</string>
+    <string name="key_import_empty">चयनित फ़ाइल में कोई कुंजी नहीं है।</string>
+    <string name="key_import_failed">कुंजी फ़ाइल पढ़ी नहीं जा सकी: %1$s</string>
+    <string name="key_import_failed_title">आयात विफल</string>
+    <string name="key_import_failed_message">कुंजी आयात नहीं की जा सकी। जाँचें कि फ़ाइल PEM या OpenSSH निजी कुंजी है।</string>
+    <string name="key_default_import_name">आयातित कुंजी %1$d</string>
+    <string name="key_passphrase">पासफ़्रेज़ (वैकल्पिक)</string>
+    <string name="key_copy_public_key">सार्वजनिक कुंजी कॉपी करें</string>
+    <string name="key_public_key_copied">सार्वजनिक कुंजी क्लिपबोर्ड पर कॉपी की गई</string>
+    <string name="key_public_key_label">%1$s की सार्वजनिक कुंजी</string>
+    <string name="key_delete_title">कुंजी हटाएँ</string>
+    <string name="key_delete_message">“%1$s” हटाएँ? इसे पूर्ववत नहीं किया जा सकता।</string>
+    <string name="action_delete">हटाएँ</string>
+    <string name="action_cancel">रद्द करें</string>
 </resources>

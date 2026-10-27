@@ -25,38 +25,61 @@ class KeyRepository(
     suspend fun getById(id: Long): SshKey? = keyDao.getById(id)
 
     /**
-     * Import an existing SSH private key from raw bytes (PEM format).
+     * Import an existing SSH private key from PEM/OpenSSH text, optionally
+     * protected by [passphrase]. The algorithm and key size are read from the
+     * key itself.
      */
     suspend fun importKey(
         name: String,
-        keyData: ByteArray,
-        algorithm: String,
-        keySize: Int,
-        comment: String = ""
+        keyText: String,
+        passphrase: String?
     ): Long = withContext(Dispatchers.IO) {
-        // Derive public key and fingerprint
+        val passphraseBytes = passphrase?.toByteArray(Charsets.UTF_8)
         val jSch = JSch()
-        val keyPair = KeyPair.load(jSch, keyData, null)
-        val publicKeyBlob = keyPair.publicKeyBlob ?: ByteArray(0)
-        val fingerprint = HostKeyManager.computeFingerprint(publicKeyBlob, algorithm)
+        val keyPair = try {
+            KeyPair.load(jSch, keyText.toByteArray(Charsets.UTF_8), null)
+        } catch (e: com.jcraft.jsch.JSchException) {
+            // Likely passphrase-protected; retry with the supplied passphrase.
+            if (passphraseBytes == null) throw e
+            KeyPair.load(
+                jSch,
+                keyText.toByteArray(Charsets.UTF_8),
+                passphraseBytes
+            )
+        }
+        try {
+            val (algorithm, keySize) = keyPair.describe()
+            keyPair.toSshKey(name, algorithm, keySize, "")
+        } finally {
+            keyPair.dispose()
+        }
+    }
 
-        // Encrypt and save private key
-        val encrypted = keyStoreManager.encrypt(keyData)
-        val fileName = "key_${System.currentTimeMillis()}.enc"
-        val keyFile = File(keysDir, fileName)
-        keyFile.writeBytes(encrypted)
-
-        val sshKey = SshKey(
-            name = name,
-            algorithm = algorithm,
-            keySize = keySize,
-            fingerprint = fingerprint,
-            encryptedKeyPath = keyFile.absolutePath,
-            publicKey = String(publicKeyBlob),
-            comment = comment
-        )
-
-        keyDao.insert(sshKey)
+    /**
+     * Derive the display algorithm name and key size from the key's type string
+     * (e.g. "ssh-ed25519", "ecdsa-sha2-nistp256", "ssh-rsa").
+     */
+    private fun KeyPair.describe(): Pair<String, Int> {
+        val typeString = getKeyTypeString()
+        val algorithm = when {
+            typeString.startsWith("ssh-ed25519") -> "Ed25519"
+            typeString.startsWith("ecdsa") -> "ECDSA"
+            typeString.startsWith("ssh-rsa") -> "RSA"
+            typeString.startsWith("sk-") -> "SK"
+            else -> typeString
+        }
+        val keySize = when {
+            algorithm == "Ed25519" -> 256
+            algorithm == "ECDSA" -> when {
+                typeString.endsWith("nistp384") -> 384
+                typeString.endsWith("nistp521") -> 521
+                else -> 256
+            }
+            // Unknown for RSA without decoding the blob; avoid showing a wrong
+            // bit count, the fingerprint identifies the key anyway.
+            else -> 0
+        }
+        return algorithm to keySize
     }
 
     /**
@@ -81,23 +104,45 @@ class KeyRepository(
             else -> throw IllegalArgumentException("Unsupported algorithm: $algorithm")
         }
 
+        // Key generation runs here, off the main thread.
         val keyPair = KeyPair.genKeyPair(jSch, type, keySize)
+        try {
+            keyPair.toSshKey(name, algorithm, keySize, comment)
+        } finally {
+            keyPair.dispose()
+        }
+    }
 
-        // Get private key bytes
+    /**
+     * Encrypt, persist and record a key pair that has already been generated/loaded.
+     *
+     * Must be called on a background thread.
+     */
+    private suspend fun KeyPair.toSshKey(
+        name: String,
+        algorithm: String,
+        keySize: Int,
+        comment: String
+    ): Long = withContext(Dispatchers.IO) {
+        // Private key material in OpenSSH PEM format.
         val baos = ByteArrayOutputStream()
-        keyPair.writePrivateKey(baos)
+        writePrivateKey(baos)
         val privateKeyBytes = baos.toByteArray()
         if (privateKeyBytes.isEmpty()) throw Exception("Failed to generate key")
 
-        // Encrypt and save
         val encrypted = keyStoreManager.encrypt(privateKeyBytes)
         val fileName = "key_${System.currentTimeMillis()}.enc"
         val keyFile = File(keysDir, fileName)
         keyFile.writeBytes(encrypted)
 
-        // Public key info
-        val publicKeyBlob = keyPair.publicKeyBlob ?: ByteArray(0)
+        // Public key info. The key is stored as an authorized_keys line
+        // ("ssh-rsa AAAA... comment") rather than the raw blob, so it can be
+        // copied straight into a server's authorized_keys.
+        val publicKeyBlob = publicKeyBlob ?: ByteArray(0)
         val fingerprint = HostKeyManager.computeFingerprint(publicKeyBlob, algorithm)
+        val publicKeyOut = ByteArrayOutputStream()
+        writePublicKey(publicKeyOut, comment)
+        val publicKeyLine = publicKeyOut.toString("US-ASCII").trim()
 
         val sshKey = SshKey(
             name = name,
@@ -105,7 +150,7 @@ class KeyRepository(
             keySize = keySize,
             fingerprint = fingerprint,
             encryptedKeyPath = keyFile.absolutePath,
-            publicKey = String(publicKeyBlob),
+            publicKey = publicKeyLine,
             comment = comment
         )
 

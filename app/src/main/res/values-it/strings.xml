@@ -88,4 +88,29 @@
     <string name="custom_host_invalid_ip">Inserisci un indirizzo IPv4 valido</string>
     <string name="custom_host_invalid_hostname">Inserisci un nome host valido</string>
     <string name="custom_host_duplicate">Questo nome host esiste già</string>
+
+    <!-- Chiavi -->
+    <string name="key_generate_title">Genera chiave SSH</string>
+    <string name="key_generate_confirm">Genera</string>
+    <string name="key_generate_failed_title">Generazione della chiave non riuscita</string>
+    <string name="key_generate_failed_message">Impossibile generare la chiave.</string>
+    <string name="key_default_name">Chiave %1$d</string>
+    <string name="key_size_rsa_hint">Dimensione chiave (solo RSA)</string>
+    <string name="key_size_fixed_hint">Dimensione chiave (fissa per questo tipo)</string>
+    <string name="key_import_title">Importa chiave SSH</string>
+    <string name="key_import_confirm">Importa</string>
+    <string name="key_import_hint">Il file selezionato viene caricato automaticamente. Inserisci una passphrase facoltativa se la chiave è crittografata.</string>
+    <string name="key_import_empty">Il file selezionato non contiene alcuna chiave.</string>
+    <string name="key_import_failed">Impossibile leggere il file della chiave: %1$s</string>
+    <string name="key_import_failed_title">Importazione non riuscita</string>
+    <string name="key_import_failed_message">Impossibile importare la chiave. Verifica che il file sia una chiave privata in formato PEM o OpenSSH.</string>
+    <string name="key_default_import_name">Chiave importata %1$d</string>
+    <string name="key_passphrase">Passphrase (facoltativa)</string>
+    <string name="key_copy_public_key">Copia chiave pubblica</string>
+    <string name="key_public_key_copied">Chiave pubblica copiata negli appunti</string>
+    <string name="key_public_key_label">Chiave pubblica di %1$s</string>
+    <string name="key_delete_title">Elimina chiave</string>
+    <string name="key_delete_message">Eliminare «%1$s»? L\'operazione non può essere annullata.</string>
+    <string name="action_delete">Elimina</string>
+    <string name="action_cancel">Annulla</string>
 </resources>

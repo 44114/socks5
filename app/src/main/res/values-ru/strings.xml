@@ -88,4 +88,29 @@
     <string name="custom_host_invalid_ip">Введите действительный IPv4-адрес</string>
     <string name="custom_host_invalid_hostname">Введите действительное имя хоста</string>
     <string name="custom_host_duplicate">Это имя хоста уже существует</string>
+
+    <!-- Ключи -->
+    <string name="key_generate_title">Создать ключ SSH</string>
+    <string name="key_generate_confirm">Создать</string>
+    <string name="key_generate_failed_title">Не удалось создать ключ</string>
+    <string name="key_generate_failed_message">Ключ не может быть создан.</string>
+    <string name="key_default_name">Ключ %1$d</string>
+    <string name="key_size_rsa_hint">Размер ключа (только RSA)</string>
+    <string name="key_size_fixed_hint">Размер ключа (фиксирован для этого типа)</string>
+    <string name="key_import_title">Импорт ключа SSH</string>
+    <string name="key_import_confirm">Импорт</string>
+    <string name="key_import_hint">Выбранный файл загружается автоматически. Введите парольную фразу, если ключ зашифрован (необязательно).</string>
+    <string name="key_import_empty">Выбранный файл не содержит ключа.</string>
+    <string name="key_import_failed">Не удалось прочитать файл ключа: %1$s</string>
+    <string name="key_import_failed_title">Ошибка импорта</string>
+    <string name="key_import_failed_message">Ключ не может быть импортирован. Убедитесь, что файл является закрытым ключом в формате PEM или OpenSSH.</string>
+    <string name="key_default_import_name">Импортированный ключ %1$d</string>
+    <string name="key_passphrase">Парольная фраза (необязательно)</string>
+    <string name="key_copy_public_key">Копировать открытый ключ</string>
+    <string name="key_public_key_copied">Открытый ключ скопирован в буфер обмена</string>
+    <string name="key_public_key_label">Открытый ключ %1$s</string>
+    <string name="key_delete_title">Удалить ключ</string>
+    <string name="key_delete_message">Удалить «%1$s»? Это действие нельзя отменить.</string>
+    <string name="action_delete">Удалить</string>
+    <string name="action_cancel">Отмена</string>
 </resources>

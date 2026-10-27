@@ -16,8 +16,10 @@ import com.socks5.ssh.SshConnectionManager
 import com.socks5.ssh.SshConnectionManager.ConnectionState
 import com.socks5.util.TrafficStats
 import com.socks5.vpn.Socks5VpnService
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.json.JSONObject
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
@@ -257,15 +259,50 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     /**
-     * Import an SSH key from raw data.
+     * Generate a new SSH key in [viewModelScope].
+     *
+     * Generation is intentionally not tied to any fragment/dialog view lifecycle:
+     * it continues across configuration changes and is never silently dropped.
+     * [onComplete] runs on the main thread and receives null on success or the
+     * failure that occurred.
      */
-    suspend fun importKey(
+    fun generateKey(
         name: String,
-        keyData: ByteArray,
         algorithm: String,
         keySize: Int,
-        comment: String = ""
-    ): Long {
-        return keyRepository.importKey(name, keyData, algorithm, keySize, comment)
+        comment: String = "",
+        onComplete: (Throwable?) -> Unit
+    ) {
+        viewModelScope.launch(Dispatchers.Default) {
+            val error = try {
+                keyRepository.generateKey(name, algorithm, keySize, comment)
+                null
+            } catch (e: Exception) {
+                e
+            }
+            withContext(Dispatchers.Main) { onComplete(error) }
+        }
+    }
+
+    /**
+     * Import a private key given as PEM/OpenSSH text, optionally passphrase
+     * protected. Runs in [viewModelScope] for the same reason as [generateKey]:
+     * parsing can outlive the dialog's view. [onComplete] runs on the main thread.
+     */
+    fun importKey(
+        name: String,
+        keyText: String,
+        passphrase: String?,
+        onComplete: (Throwable?) -> Unit
+    ) {
+        viewModelScope.launch(Dispatchers.Default) {
+            val error = try {
+                keyRepository.importKey(name, keyText, passphrase)
+                null
+            } catch (e: Exception) {
+                e
+            }
+            withContext(Dispatchers.Main) { onComplete(error) }
+        }
     }
 }

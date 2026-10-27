@@ -88,4 +88,29 @@
     <string name="custom_host_invalid_ip">Introduzca una dirección IPv4 válida</string>
     <string name="custom_host_invalid_hostname">Introduzca un nombre de host válido</string>
     <string name="custom_host_duplicate">Este nombre de host ya existe</string>
+
+    <!-- Claves -->
+    <string name="key_generate_title">Generar clave SSH</string>
+    <string name="key_generate_confirm">Generar</string>
+    <string name="key_generate_failed_title">Error al generar la clave</string>
+    <string name="key_generate_failed_message">No se pudo generar la clave.</string>
+    <string name="key_default_name">Clave %1$d</string>
+    <string name="key_size_rsa_hint">Tamaño de clave (solo RSA)</string>
+    <string name="key_size_fixed_hint">Tamaño de clave (fijo para este tipo)</string>
+    <string name="key_import_title">Importar clave SSH</string>
+    <string name="key_import_confirm">Importar</string>
+    <string name="key_import_hint">El archivo seleccionado se carga automáticamente. Introduce una frase de contraseña opcional si la clave está cifrada.</string>
+    <string name="key_import_empty">El archivo seleccionado no contiene ninguna clave.</string>
+    <string name="key_import_failed">No se pudo leer el archivo de clave: %1$s</string>
+    <string name="key_import_failed_title">Error de importación</string>
+    <string name="key_import_failed_message">No se pudo importar la clave. Comprueba que el archivo sea una clave privada en formato PEM u OpenSSH.</string>
+    <string name="key_default_import_name">Clave importada %1$d</string>
+    <string name="key_passphrase">Frase de contraseña (opcional)</string>
+    <string name="key_copy_public_key">Copiar clave pública</string>
+    <string name="key_public_key_copied">Clave pública copiada al portapapeles</string>
+    <string name="key_public_key_label">Clave pública de %1$s</string>
+    <string name="key_delete_title">Eliminar clave</string>
+    <string name="key_delete_message">¿Eliminar «%1$s»? Esta acción no se puede deshacer.</string>
+    <string name="action_delete">Eliminar</string>
+    <string name="action_cancel">Cancelar</string>
 </resources>

@@ -88,4 +88,29 @@
     <string name="custom_host_invalid_ip">يرجى إدخال عنوان IPv4 صالح</string>
     <string name="custom_host_invalid_hostname">يرجى إدخال اسم مضيف صالح</string>
     <string name="custom_host_duplicate">اسم المضيف هذا موجود بالفعل</string>
+
+    <!-- المفاتيح -->
+    <string name="key_generate_title">توليد مفتاح SSH</string>
+    <string name="key_generate_confirm">إنشاء</string>
+    <string name="key_generate_failed_title">فشل إنشاء المفتاح</string>
+    <string name="key_generate_failed_message">تعذّر إنشاء المفتاح.</string>
+    <string name="key_default_name">مفتاح %1$d</string>
+    <string name="key_size_rsa_hint">حجم المفتاح (RSA فقط)</string>
+    <string name="key_size_fixed_hint">حجم المفتاح (ثابت لهذا النوع)</string>
+    <string name="key_import_title">استيراد مفتاح SSH</string>
+    <string name="key_import_confirm">استيراد</string>
+    <string name="key_import_hint">يتم تحميل الملف المحدد تلقائيًا. أدخل عبارة مرور اختيارية إذا كان المفتاح مشفّرًا.</string>
+    <string name="key_import_empty">الملف المحدد لا يحتوي على مفتاح.</string>
+    <string name="key_import_failed">تعذّرت قراءة ملف المفتاح: %1$s</string>
+    <string name="key_import_failed_title">فشل الاستيراد</string>
+    <string name="key_import_failed_message">تعذّر استيراد المفتاح. تحقّق من أن الملف مفتاح خاص بصيغة PEM أو OpenSSH.</string>
+    <string name="key_default_import_name">مفتاح مستورد %1$d</string>
+    <string name="key_passphrase">عبارة المرور (اختياري)</string>
+    <string name="key_copy_public_key">نسخ المفتاح العام</string>
+    <string name="key_public_key_copied">تم نسخ المفتاح العام إلى الحافظة</string>
+    <string name="key_public_key_label">المفتاح العام لـ %1$s</string>
+    <string name="key_delete_title">حذف المفتاح</string>
+    <string name="key_delete_message">حذف “%1$s”؟ لا يمكن التراجع عن ذلك.</string>
+    <string name="action_delete">حذف</string>
+    <string name="action_cancel">إلغاء</string>
 </resources>

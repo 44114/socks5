@@ -88,4 +88,29 @@
     <string name="custom_host_invalid_ip">Lütfen geçerli bir IPv4 adresi girin</string>
     <string name="custom_host_invalid_hostname">Lütfen geçerli bir ana bilgisayar adı girin</string>
     <string name="custom_host_duplicate">Bu ana bilgisayar adı zaten mevcut</string>
+
+    <!-- Anahtarlar -->
+    <string name="key_generate_title">SSH Anahtarı Oluştur</string>
+    <string name="key_generate_confirm">Oluştur</string>
+    <string name="key_generate_failed_title">Anahtar oluşturulamadı</string>
+    <string name="key_generate_failed_message">Anahtar oluşturulamadı.</string>
+    <string name="key_default_name">Anahtar %1$d</string>
+    <string name="key_size_rsa_hint">Anahtar Boyutu (yalnızca RSA)</string>
+    <string name="key_size_fixed_hint">Anahtar Boyutu (bu tür için sabit)</string>
+    <string name="key_import_title">SSH Anahtarı İçe Aktar</string>
+    <string name="key_import_confirm">İçe Aktar</string>
+    <string name="key_import_hint">Seçilen dosya otomatik olarak yüklenir. Anahtar şifreliyse isteğe bağlı bir parola girin.</string>
+    <string name="key_import_empty">Seçilen dosya bir anahtar içermiyor.</string>
+    <string name="key_import_failed">Anahtar dosyası okunamadı: %1$s</string>
+    <string name="key_import_failed_title">İçe aktarma başarısız</string>
+    <string name="key_import_failed_message">Anahtar içe aktarılamadı. Dosyanın PEM veya OpenSSH biçiminde bir özel anahtar olduğunu kontrol edin.</string>
+    <string name="key_default_import_name">İçe Aktarılan Anahtar %1$d</string>
+    <string name="key_passphrase">Parola (isteğe bağlı)</string>
+    <string name="key_copy_public_key">Genel anahtarı kopyala</string>
+    <string name="key_public_key_copied">Genel anahtar panoya kopyalandı</string>
+    <string name="key_public_key_label">%1$s genel anahtarı</string>
+    <string name="key_delete_title">Anahtarı Sil</string>
+    <string name="key_delete_message">“%1$s” silinsin mi? Bu işlem geri alınamaz.</string>
+    <string name="action_delete">Sil</string>
+    <string name="action_cancel">İptal</string>
 </resources>

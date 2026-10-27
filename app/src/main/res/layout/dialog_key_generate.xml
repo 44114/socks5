@@ -37,14 +37,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="Key Size (RSA only)">
+        android:hint="@string/key_size_rsa_hint">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/key_size_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:text="4096" />
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

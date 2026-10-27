@@ -50,11 +50,20 @@
         </LinearLayout>
 
         <ImageButton
+            android:id="@+id/copy_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_content_copy"
+            android:contentDescription="@string/key_copy_public_key"
+            android:tooltipText="@string/key_copy_public_key"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+
+        <ImageButton
             android:id="@+id/delete_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@android:drawable/ic_menu_delete"
-            android:contentDescription="Delete"
+            android:src="@drawable/ic_delete"
+            android:contentDescription="@string/action_delete"
             android:background="?attr/selectableItemBackgroundBorderless" />
 
     </LinearLayout>

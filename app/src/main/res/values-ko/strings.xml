@@ -88,4 +88,29 @@
     <string name="custom_host_invalid_ip">유효한 IPv4 주소를 입력하세요</string>
     <string name="custom_host_invalid_hostname">유효한 호스트 이름을 입력하세요</string>
     <string name="custom_host_duplicate">이 호스트 이름이 이미 존재합니다</string>
+
+    <!-- 키 -->
+    <string name="key_generate_title">SSH 키 생성</string>
+    <string name="key_generate_confirm">생성</string>
+    <string name="key_generate_failed_title">키 생성 실패</string>
+    <string name="key_generate_failed_message">키를 생성할 수 없습니다.</string>
+    <string name="key_default_name">키 %1$d</string>
+    <string name="key_size_rsa_hint">키 크기 (RSA 전용)</string>
+    <string name="key_size_fixed_hint">키 크기 (이 유형에서는 고정)</string>
+    <string name="key_import_title">SSH 키 가져오기</string>
+    <string name="key_import_confirm">가져오기</string>
+    <string name="key_import_hint">선택한 파일이 자동으로 로드됩니다. 키가 암호화되어 있으면 선택적으로 암호를 입력하세요.</string>
+    <string name="key_import_empty">선택한 파일에 키가 없습니다.</string>
+    <string name="key_import_failed">키 파일을 읽을 수 없습니다: %1$s</string>
+    <string name="key_import_failed_title">가져오기 실패</string>
+    <string name="key_import_failed_message">키를 가져올 수 없습니다. 파일이 PEM 또는 OpenSSH 개인 키인지 확인하세요.</string>
+    <string name="key_default_import_name">가져온 키 %1$d</string>
+    <string name="key_passphrase">암호 (선택)</string>
+    <string name="key_copy_public_key">공개 키 복사</string>
+    <string name="key_public_key_copied">공개 키를 클립보드에 복사했습니다</string>
+    <string name="key_public_key_label">%1$s 공개 키</string>
+    <string name="key_delete_title">키 삭제</string>
+    <string name="key_delete_message">‘%1$s’을(를) 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.</string>
+    <string name="action_delete">삭제</string>
+    <string name="action_cancel">취소</string>
 </resources>

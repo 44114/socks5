@@ -88,4 +88,29 @@
     <string name="custom_host_invalid_ip">Bitte geben Sie eine gültige IPv4-Adresse ein</string>
     <string name="custom_host_invalid_hostname">Bitte geben Sie einen gültigen Hostnamen ein</string>
     <string name="custom_host_duplicate">Dieser Hostname existiert bereits</string>
+
+    <!-- Schlüssel -->
+    <string name="key_generate_title">SSH-Schlüssel erzeugen</string>
+    <string name="key_generate_confirm">Erzeugen</string>
+    <string name="key_generate_failed_title">Schlüsselerzeugung fehlgeschlagen</string>
+    <string name="key_generate_failed_message">Der Schlüssel konnte nicht erzeugt werden.</string>
+    <string name="key_default_name">Schlüssel %1$d</string>
+    <string name="key_size_rsa_hint">Schlüssellänge (nur RSA)</string>
+    <string name="key_size_fixed_hint">Schlüssellänge (bei diesem Typ fest)</string>
+    <string name="key_import_title">SSH-Schlüssel importieren</string>
+    <string name="key_import_confirm">Importieren</string>
+    <string name="key_import_hint">Die ausgewählte Datei wird automatisch geladen. Geben Sie eine optionale Passphrase ein, wenn der Schlüssel verschlüsselt ist.</string>
+    <string name="key_import_empty">Die ausgewählte Datei enthält keinen Schlüssel.</string>
+    <string name="key_import_failed">Schlüsseldatei konnte nicht gelesen werden: %1$s</string>
+    <string name="key_import_failed_title">Import fehlgeschlagen</string>
+    <string name="key_import_failed_message">Der Schlüssel konnte nicht importiert werden. Prüfen Sie, ob die Datei ein privater Schlüssel im PEM- oder OpenSSH-Format ist.</string>
+    <string name="key_default_import_name">Importierter Schlüssel %1$d</string>
+    <string name="key_passphrase">Passphrase (optional)</string>
+    <string name="key_copy_public_key">Öffentlichen Schlüssel kopieren</string>
+    <string name="key_public_key_copied">Öffentlicher Schlüssel in die Zwischenablage kopiert</string>
+    <string name="key_public_key_label">Öffentlicher Schlüssel von %1$s</string>
+    <string name="key_delete_title">Schlüssel löschen</string>
+    <string name="key_delete_message">„%1$s“ löschen? Dies kann nicht rückgängig gemacht werden.</string>
+    <string name="action_delete">Löschen</string>
+    <string name="action_cancel">Abbrechen</string>
 </resources>
